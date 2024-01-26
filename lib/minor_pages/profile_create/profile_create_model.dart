@@ -12,7 +12,6 @@ import '/flutter_flow/upload_data.dart';
 import 'profile_create_widget.dart' show ProfileCreateWidget;
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';

@@ -14,18 +14,18 @@ export 'delete_dialog_model.dart';
 
 class DeleteDialogWidget extends StatefulWidget {
   const DeleteDialogWidget({
-    Key? key,
+    super.key,
     this.chatList,
     required this.action,
     required this.deleteAction,
-  }) : super(key: key);
+  });
 
   final ChatsRecord? chatList;
-  final Future<dynamic> Function()? action;
-  final Future<dynamic> Function()? deleteAction;
+  final Future Function()? action;
+  final Future Function()? deleteAction;
 
   @override
-  _DeleteDialogWidgetState createState() => _DeleteDialogWidgetState();
+  State<DeleteDialogWidget> createState() => _DeleteDialogWidgetState();
 }
 
 class _DeleteDialogWidgetState extends State<DeleteDialogWidget>
@@ -72,6 +72,8 @@ class _DeleteDialogWidgetState extends State<DeleteDialogWidget>
         _model.showDelete = false;
       });
     });
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

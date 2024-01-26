@@ -12,16 +12,16 @@ export 'carousel_of_images_model.dart';
 
 class CarouselOfImagesWidget extends StatefulWidget {
   const CarouselOfImagesWidget({
-    Key? key,
+    super.key,
     required this.index,
     required this.ec,
-  }) : super(key: key);
+  });
 
   final int? index;
   final EcStruct? ec;
 
   @override
-  _CarouselOfImagesWidgetState createState() => _CarouselOfImagesWidgetState();
+  State<CarouselOfImagesWidget> createState() => _CarouselOfImagesWidgetState();
 }
 
 class _CarouselOfImagesWidgetState extends State<CarouselOfImagesWidget> {
@@ -37,6 +37,8 @@ class _CarouselOfImagesWidgetState extends State<CarouselOfImagesWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => CarouselOfImagesModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

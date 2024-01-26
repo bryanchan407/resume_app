@@ -20,14 +20,14 @@ export 'chat2_invite_users_model.dart';
 
 class Chat2InviteUsersWidget extends StatefulWidget {
   const Chat2InviteUsersWidget({
-    Key? key,
+    super.key,
     this.chatRef,
-  }) : super(key: key);
+  });
 
   final ChatsRecord? chatRef;
 
   @override
-  _Chat2InviteUsersWidgetState createState() => _Chat2InviteUsersWidgetState();
+  State<Chat2InviteUsersWidget> createState() => _Chat2InviteUsersWidgetState();
 }
 
 class _Chat2InviteUsersWidgetState extends State<Chat2InviteUsersWidget> {
@@ -55,6 +55,8 @@ class _Chat2InviteUsersWidgetState extends State<Chat2InviteUsersWidget> {
         });
       }
     });
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

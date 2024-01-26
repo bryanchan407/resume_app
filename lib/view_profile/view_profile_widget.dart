@@ -19,16 +19,16 @@ export 'view_profile_model.dart';
 
 class ViewProfileWidget extends StatefulWidget {
   const ViewProfileWidget({
-    Key? key,
+    super.key,
     required this.currentUser,
     this.chatRef,
-  }) : super(key: key);
+  });
 
   final DocumentReference? currentUser;
   final ChatsRecord? chatRef;
 
   @override
-  _ViewProfileWidgetState createState() => _ViewProfileWidgetState();
+  State<ViewProfileWidget> createState() => _ViewProfileWidgetState();
 }
 
 class _ViewProfileWidgetState extends State<ViewProfileWidget> {
@@ -40,6 +40,8 @@ class _ViewProfileWidgetState extends State<ViewProfileWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => ViewProfileModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -272,31 +274,40 @@ class _ViewProfileWidgetState extends State<ViewProfileWidget> {
                                                   fit: BoxFit.cover,
                                                 ),
                                               ),
-                                              Align(
-                                                alignment: AlignmentDirectional(
-                                                    1.0, 1.0),
-                                                child: FlutterFlowIconButton(
-                                                  borderColor:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .primary,
-                                                  borderRadius: 20.0,
-                                                  borderWidth: 1.0,
-                                                  buttonSize: 40.0,
-                                                  fillColor: Color(0xFF0077B5),
-                                                  icon: FaIcon(
-                                                    FontAwesomeIcons.linkedin,
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .primaryText,
-                                                    size: 24.0,
+                                              if (viewProfileUsersRecord
+                                                          .linkedinURL !=
+                                                      null &&
+                                                  viewProfileUsersRecord
+                                                          .linkedinURL !=
+                                                      '')
+                                                Align(
+                                                  alignment:
+                                                      AlignmentDirectional(
+                                                          1.0, 1.0),
+                                                  child: FlutterFlowIconButton(
+                                                    borderColor:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .primary,
+                                                    borderRadius: 20.0,
+                                                    borderWidth: 1.0,
+                                                    buttonSize: 40.0,
+                                                    fillColor:
+                                                        Color(0xFF0077B5),
+                                                    icon: FaIcon(
+                                                      FontAwesomeIcons.linkedin,
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .primaryText,
+                                                      size: 24.0,
+                                                    ),
+                                                    onPressed: () async {
+                                                      await launchURL(
+                                                          'https://www.linkedin.com/in/${viewProfileUsersRecord.linkedinURL}/');
+                                                    },
                                                   ),
-                                                  onPressed: () async {
-                                                    await launchURL(
-                                                        'https://www.linkedin.com/in/${viewProfileUsersRecord.linkedinURL}/');
-                                                  },
                                                 ),
-                                              ),
                                             ],
                                           ),
                                         ),
@@ -424,47 +435,6 @@ class _ViewProfileWidgetState extends State<ViewProfileWidget> {
                                 Expanded(
                                   child: Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 0.0, 6.0, 0.0),
-                                    child: FFButtonWidget(
-                                      onPressed: () async {
-                                        context.pushNamed('EditProfile');
-                                      },
-                                      text: 'Edit',
-                                      options: FFButtonOptions(
-                                        height: 36.0,
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            24.0, 0.0, 24.0, 0.0),
-                                        iconPadding:
-                                            EdgeInsetsDirectional.fromSTEB(
-                                                0.0, 0.0, 0.0, 0.0),
-                                        color: FlutterFlowTheme.of(context)
-                                            .primaryBackground,
-                                        textStyle: FlutterFlowTheme.of(context)
-                                            .titleSmall
-                                            .override(
-                                              fontFamily: 'Poppins',
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .primaryText,
-                                              fontSize: 14.0,
-                                              fontWeight: FontWeight.w600,
-                                            ),
-                                        elevation: 0.0,
-                                        borderSide: BorderSide(
-                                          color: FlutterFlowTheme.of(context)
-                                              .secondary,
-                                          width: 1.0,
-                                        ),
-                                        borderRadius:
-                                            BorderRadius.circular(8.0),
-                                      ),
-                                      showLoadingIndicator: false,
-                                    ),
-                                  ),
-                                ),
-                                Expanded(
-                                  child: Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
                                         6.0, 0.0, 0.0, 0.0),
                                     child: FFButtonWidget(
                                       onPressed: () async {
@@ -565,6 +535,47 @@ class _ViewProfileWidgetState extends State<ViewProfileWidget> {
                                         setState(() {});
                                       },
                                       text: 'Message',
+                                      options: FFButtonOptions(
+                                        height: 36.0,
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            24.0, 0.0, 24.0, 0.0),
+                                        iconPadding:
+                                            EdgeInsetsDirectional.fromSTEB(
+                                                0.0, 0.0, 0.0, 0.0),
+                                        color: FlutterFlowTheme.of(context)
+                                            .primaryBackground,
+                                        textStyle: FlutterFlowTheme.of(context)
+                                            .titleSmall
+                                            .override(
+                                              fontFamily: 'Poppins',
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primaryText,
+                                              fontSize: 14.0,
+                                              fontWeight: FontWeight.w600,
+                                            ),
+                                        elevation: 0.0,
+                                        borderSide: BorderSide(
+                                          color: FlutterFlowTheme.of(context)
+                                              .secondary,
+                                          width: 1.0,
+                                        ),
+                                        borderRadius:
+                                            BorderRadius.circular(8.0),
+                                      ),
+                                      showLoadingIndicator: false,
+                                    ),
+                                  ),
+                                ),
+                                Expanded(
+                                  child: Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        6.0, 0.0, 6.0, 0.0),
+                                    child: FFButtonWidget(
+                                      onPressed: () {
+                                        print('Button pressed ...');
+                                      },
+                                      text: 'Share',
                                       options: FFButtonOptions(
                                         height: 36.0,
                                         padding: EdgeInsetsDirectional.fromSTEB(

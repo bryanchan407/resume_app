@@ -10,13 +10,13 @@ export 'list_component_model.dart';
 
 class ListComponentWidget extends StatefulWidget {
   const ListComponentWidget({
-    Key? key,
+    super.key,
     required this.title,
     required this.subtitle,
     required this.index,
     required this.typeEC,
     required this.description,
-  }) : super(key: key);
+  });
 
   final String? title;
   final String? subtitle;
@@ -25,7 +25,7 @@ class ListComponentWidget extends StatefulWidget {
   final String? description;
 
   @override
-  _ListComponentWidgetState createState() => _ListComponentWidgetState();
+  State<ListComponentWidget> createState() => _ListComponentWidgetState();
 }
 
 class _ListComponentWidgetState extends State<ListComponentWidget> {
@@ -82,7 +82,7 @@ class _ListComponentWidgetState extends State<ListComponentWidget> {
                   setState(() {
                     FFAppState().updatePerformingArtsAtIndex(
                       widget.index!,
-                      (e) => e..photoUrl = _model.titleController.text,
+                      (e) => e..title = _model.titleController.text,
                     );
                   });
                 } else {
@@ -227,6 +227,7 @@ class _ListComponentWidgetState extends State<ListComponentWidget> {
         }
       },
     );
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -255,6 +256,7 @@ class _ListComponentWidgetState extends State<ListComponentWidget> {
                 controller: _model.titleController,
                 focusNode: _model.titleFocusNode,
                 autofocus: true,
+                textInputAction: TextInputAction.done,
                 obscureText: false,
                 decoration: InputDecoration(
                   labelText: 'Title',
@@ -304,6 +306,7 @@ class _ListComponentWidgetState extends State<ListComponentWidget> {
                 controller: _model.subtitleController,
                 focusNode: _model.subtitleFocusNode,
                 autofocus: true,
+                textInputAction: TextInputAction.done,
                 obscureText: false,
                 decoration: InputDecoration(
                   labelText: 'Subtitle',
@@ -358,6 +361,7 @@ class _ListComponentWidgetState extends State<ListComponentWidget> {
                 controller: _model.descriptionController,
                 focusNode: _model.descriptionFocusNode,
                 autofocus: true,
+                textInputAction: TextInputAction.done,
                 obscureText: false,
                 decoration: InputDecoration(
                   labelText: 'Description',

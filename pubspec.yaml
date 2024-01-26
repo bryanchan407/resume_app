@@ -26,12 +26,13 @@ dependencies:
   flutter_localizations:
     sdk: flutter
   auto_size_text: 3.0.0
-  cached_network_image: 3.3.0
+  cached_network_image: 3.2.1
   carousel_slider: 4.2.1
   chewie: 1.7.1
   cloud_firestore: 4.13.1
   cloud_firestore_platform_interface: 6.0.5
   cloud_firestore_web: 3.8.5
+  collection: 1.17.2
   dropdown_button2: 2.3.9
   easy_debounce: 2.0.1
   equatable: 2.0.5

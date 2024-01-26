@@ -21,14 +21,14 @@ export 'chat_thread_component_model.dart';
 
 class ChatThreadComponentWidget extends StatefulWidget {
   const ChatThreadComponentWidget({
-    Key? key,
+    super.key,
     this.chatRef,
-  }) : super(key: key);
+  });
 
   final ChatsRecord? chatRef;
 
   @override
-  _ChatThreadComponentWidgetState createState() =>
+  State<ChatThreadComponentWidget> createState() =>
       _ChatThreadComponentWidgetState();
 }
 
@@ -48,6 +48,8 @@ class _ChatThreadComponentWidgetState extends State<ChatThreadComponentWidget> {
 
     _model.textController ??= TextEditingController();
     _model.textFieldFocusNode ??= FocusNode();
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

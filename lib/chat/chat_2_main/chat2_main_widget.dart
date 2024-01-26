@@ -14,10 +14,10 @@ import 'chat2_main_model.dart';
 export 'chat2_main_model.dart';
 
 class Chat2MainWidget extends StatefulWidget {
-  const Chat2MainWidget({Key? key}) : super(key: key);
+  const Chat2MainWidget({super.key});
 
   @override
-  _Chat2MainWidgetState createState() => _Chat2MainWidgetState();
+  State<Chat2MainWidget> createState() => _Chat2MainWidgetState();
 }
 
 class _Chat2MainWidgetState extends State<Chat2MainWidget> {
@@ -29,6 +29,8 @@ class _Chat2MainWidgetState extends State<Chat2MainWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => Chat2MainModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

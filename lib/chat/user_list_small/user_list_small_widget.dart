@@ -12,16 +12,16 @@ export 'user_list_small_model.dart';
 
 class UserListSmallWidget extends StatefulWidget {
   const UserListSmallWidget({
-    Key? key,
+    super.key,
     this.userRef,
     this.action,
-  }) : super(key: key);
+  });
 
   final UsersRecord? userRef;
-  final Future<dynamic> Function()? action;
+  final Future Function()? action;
 
   @override
-  _UserListSmallWidgetState createState() => _UserListSmallWidgetState();
+  State<UserListSmallWidget> createState() => _UserListSmallWidgetState();
 }
 
 class _UserListSmallWidgetState extends State<UserListSmallWidget> {
@@ -37,6 +37,8 @@ class _UserListSmallWidgetState extends State<UserListSmallWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => UserListSmallModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

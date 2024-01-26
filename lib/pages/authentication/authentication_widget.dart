@@ -12,15 +12,14 @@ import 'package:flutter_animate/flutter_animate.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-
 import 'authentication_model.dart';
 export 'authentication_model.dart';
 
 class AuthenticationWidget extends StatefulWidget {
-  const AuthenticationWidget({Key? key}) : super(key: key);
+  const AuthenticationWidget({super.key});
 
   @override
-  _AuthenticationWidgetState createState() => _AuthenticationWidgetState();
+  State<AuthenticationWidget> createState() => _AuthenticationWidgetState();
 }
 
 class _AuthenticationWidgetState extends State<AuthenticationWidget>
@@ -38,22 +37,22 @@ class _AuthenticationWidgetState extends State<AuthenticationWidget>
           curve: Curves.easeInOut,
           delay: 0.ms,
           duration: 400.ms,
-          begin: 0,
-          end: 1,
+          begin: 0.0,
+          end: 1.0,
         ),
         MoveEffect(
           curve: Curves.easeInOut,
           delay: 0.ms,
           duration: 400.ms,
-          begin: Offset(0, 80),
-          end: Offset(0, 0),
+          begin: Offset(0.0, 80.0),
+          end: Offset(0.0, 0.0),
         ),
         ScaleEffect(
           curve: Curves.easeInOut,
           delay: 150.ms,
           duration: 400.ms,
           begin: Offset(0.8, 0.8),
-          end: Offset(1, 1),
+          end: Offset(1.0, 1.0),
         ),
       ],
     ),
@@ -65,15 +64,15 @@ class _AuthenticationWidgetState extends State<AuthenticationWidget>
           curve: Curves.easeInOut,
           delay: 300.ms,
           duration: 400.ms,
-          begin: 0,
-          end: 1,
+          begin: 0.0,
+          end: 1.0,
         ),
         MoveEffect(
           curve: Curves.easeInOut,
           delay: 300.ms,
           duration: 400.ms,
-          begin: Offset(0, 20),
-          end: Offset(0, 0),
+          begin: Offset(0.0, 20.0),
+          end: Offset(0.0, 0.0),
         ),
       ],
     ),
@@ -85,15 +84,15 @@ class _AuthenticationWidgetState extends State<AuthenticationWidget>
           curve: Curves.easeInOut,
           delay: 300.ms,
           duration: 400.ms,
-          begin: 0,
-          end: 1,
+          begin: 0.0,
+          end: 1.0,
         ),
         MoveEffect(
           curve: Curves.easeInOut,
           delay: 300.ms,
           duration: 400.ms,
-          begin: Offset(0, 20),
-          end: Offset(0, 0),
+          begin: Offset(0.0, 20.0),
+          end: Offset(0.0, 0.0),
         ),
       ],
     ),
@@ -126,6 +125,8 @@ class _AuthenticationWidgetState extends State<AuthenticationWidget>
 
     _model.passwordConfirmController ??= TextEditingController();
     _model.passwordConfirmFocusNode ??= FocusNode();
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -180,7 +181,7 @@ class _AuthenticationWidgetState extends State<AuthenticationWidget>
                     shape: BoxShape.rectangle,
                   ),
                   child: ClipRRect(
-                    borderRadius: BorderRadius.circular(8),
+                    borderRadius: BorderRadius.circular(8.0),
                     child: Image.network(
                       'https://images.unsplash.com/photo-1604077137850-c6d2e2a44cce?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NTYyMDF8MHwxfHNlYXJjaHwxNnx8Z3JhZGllbnR8ZW58MHx8fHwxNzAyODQwNjU1fDA&ixlib=rb-4.0.3&q=80&w=1080',
                       width: double.infinity,
@@ -190,23 +191,23 @@ class _AuthenticationWidgetState extends State<AuthenticationWidget>
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsets.all(32),
+                  padding: EdgeInsets.all(32.0),
                   child: Container(
                     width: double.infinity,
-                    height: 230,
+                    height: 230.0,
                     decoration: BoxDecoration(
                       color: Color(0x00F1F4F8),
-                      borderRadius: BorderRadius.circular(16),
+                      borderRadius: BorderRadius.circular(16.0),
                     ),
-                    alignment: AlignmentDirectional(0, 0),
+                    alignment: AlignmentDirectional(0.0, 0.0),
                     child: Column(
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         Align(
-                          alignment: AlignmentDirectional(0, -1),
+                          alignment: AlignmentDirectional(0.0, -1.0),
                           child: Padding(
-                            padding:
-                                EdgeInsetsDirectional.fromSTEB(0, 30, 0, 0),
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 30.0, 0.0, 0.0),
                             child: Text(
                               'ResuMe',
                               style: FlutterFlowTheme.of(context)
@@ -214,7 +215,7 @@ class _AuthenticationWidgetState extends State<AuthenticationWidget>
                                   .override(
                                     fontFamily: 'Poppins',
                                     color: FlutterFlowTheme.of(context).primary,
-                                    fontSize: 50,
+                                    fontSize: 50.0,
                                     fontWeight: FontWeight.w500,
                                   ),
                             ),
@@ -235,48 +236,49 @@ class _AuthenticationWidgetState extends State<AuthenticationWidget>
                   ),
                 ),
                 Align(
-                  alignment: AlignmentDirectional(0, -1),
+                  alignment: AlignmentDirectional(0.0, -1.0),
                   child: Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(0, 170, 0, 0),
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(0.0, 170.0, 0.0, 0.0),
                     child: SingleChildScrollView(
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Padding(
-                            padding: EdgeInsets.all(12),
+                            padding: EdgeInsets.all(12.0),
                             child: Container(
                               width: double.infinity,
                               height: MediaQuery.sizeOf(context).width >= 768.0
                                   ? 530.0
                                   : 630.0,
                               constraints: BoxConstraints(
-                                maxWidth: 570,
+                                maxWidth: 570.0,
                               ),
                               decoration: BoxDecoration(
                                 color: FlutterFlowTheme.of(context)
                                     .secondaryBackground,
                                 boxShadow: [
                                   BoxShadow(
-                                    blurRadius: 4,
+                                    blurRadius: 4.0,
                                     color: Color(0x33000000),
-                                    offset: Offset(0, 2),
+                                    offset: Offset(0.0, 2.0),
                                   )
                                 ],
-                                borderRadius: BorderRadius.circular(12),
+                                borderRadius: BorderRadius.circular(12.0),
                                 border: Border.all(
                                   color: FlutterFlowTheme.of(context)
                                       .secondaryBackground,
-                                  width: 2,
+                                  width: 2.0,
                                 ),
                               ),
                               child: Padding(
-                                padding:
-                                    EdgeInsetsDirectional.fromSTEB(0, 24, 0, 0),
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 24.0, 0.0, 0.0),
                                 child: Column(
                                   children: [
                                     Align(
-                                      alignment: Alignment(0, 0),
+                                      alignment: Alignment(0.0, 0),
                                       child: FlutterFlowButtonTabBar(
                                         useToggleButtonStyle: true,
                                         isScrollable: true,
@@ -285,7 +287,7 @@ class _AuthenticationWidgetState extends State<AuthenticationWidget>
                                             .override(
                                               fontFamily: 'Poppins',
                                               color: Colors.white,
-                                              fontSize: 18,
+                                              fontSize: 18.0,
                                               fontWeight: FontWeight.w500,
                                             ),
                                         unselectedLabelStyle: TextStyle(),
@@ -295,12 +297,12 @@ class _AuthenticationWidgetState extends State<AuthenticationWidget>
                                         unselectedBackgroundColor:
                                             Color(0xFFE0E3E7),
                                         borderColor: Color(0xFFE0E3E7),
-                                        borderWidth: 2,
-                                        borderRadius: 12,
-                                        elevation: 0,
+                                        borderWidth: 2.0,
+                                        borderRadius: 12.0,
+                                        elevation: 0.0,
                                         labelPadding:
                                             EdgeInsetsDirectional.fromSTEB(
-                                                32, 0, 32, 0),
+                                                32.0, 0.0, 32.0, 0.0),
                                         tabs: [
                                           Tab(
                                             text: 'Sign In',
@@ -321,10 +323,11 @@ class _AuthenticationWidgetState extends State<AuthenticationWidget>
                                         children: [
                                           Align(
                                             alignment:
-                                                AlignmentDirectional(0, -1),
+                                                AlignmentDirectional(0.0, -1.0),
                                             child: Padding(
                                               padding: EdgeInsetsDirectional
-                                                  .fromSTEB(24, 16, 24, 0),
+                                                  .fromSTEB(
+                                                      24.0, 16.0, 24.0, 0.0),
                                               child: Column(
                                                 mainAxisSize: MainAxisSize.max,
                                                 crossAxisAlignment:
@@ -336,8 +339,8 @@ class _AuthenticationWidgetState extends State<AuthenticationWidget>
                                                     tablet: false,
                                                   ))
                                                     Container(
-                                                      width: 230,
-                                                      height: 16,
+                                                      width: 230.0,
+                                                      height: 16.0,
                                                       decoration: BoxDecoration(
                                                         color: Colors.white,
                                                       ),
@@ -353,7 +356,7 @@ class _AuthenticationWidgetState extends State<AuthenticationWidget>
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .primaryText,
-                                                          fontSize: 24,
+                                                          fontSize: 24.0,
                                                           fontWeight:
                                                               FontWeight.w500,
                                                         ),
@@ -361,8 +364,8 @@ class _AuthenticationWidgetState extends State<AuthenticationWidget>
                                                   Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                8, 24, 8, 16),
+                                                            .fromSTEB(8.0, 24.0,
+                                                                8.0, 16.0),
                                                     child: TextFormField(
                                                       controller: _model
                                                           .emailAddressController,
@@ -384,7 +387,8 @@ class _AuthenticationWidgetState extends State<AuthenticationWidget>
                                                                       'Plus Jakarta Sans',
                                                                   color: Color(
                                                                       0xFF57636C),
-                                                                  fontSize: 14,
+                                                                  fontSize:
+                                                                      14.0,
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .w500,
@@ -398,7 +402,8 @@ class _AuthenticationWidgetState extends State<AuthenticationWidget>
                                                                       'Plus Jakarta Sans',
                                                                   color: Color(
                                                                       0xFF57636C),
-                                                                  fontSize: 14,
+                                                                  fontSize:
+                                                                      14.0,
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .w500,
@@ -409,11 +414,12 @@ class _AuthenticationWidgetState extends State<AuthenticationWidget>
                                                               BorderSide(
                                                             color: Color(
                                                                 0xFFE0E3E7),
-                                                            width: 2,
+                                                            width: 2.0,
                                                           ),
                                                           borderRadius:
                                                               BorderRadius
-                                                                  .circular(8),
+                                                                  .circular(
+                                                                      8.0),
                                                         ),
                                                         focusedBorder:
                                                             OutlineInputBorder(
@@ -421,11 +427,12 @@ class _AuthenticationWidgetState extends State<AuthenticationWidget>
                                                               BorderSide(
                                                             color: Color(
                                                                 0xFF4B39EF),
-                                                            width: 2,
+                                                            width: 2.0,
                                                           ),
                                                           borderRadius:
                                                               BorderRadius
-                                                                  .circular(8),
+                                                                  .circular(
+                                                                      8.0),
                                                         ),
                                                         errorBorder:
                                                             OutlineInputBorder(
@@ -433,11 +440,12 @@ class _AuthenticationWidgetState extends State<AuthenticationWidget>
                                                               BorderSide(
                                                             color: Color(
                                                                 0xFFFF5963),
-                                                            width: 2,
+                                                            width: 2.0,
                                                           ),
                                                           borderRadius:
                                                               BorderRadius
-                                                                  .circular(8),
+                                                                  .circular(
+                                                                      8.0),
                                                         ),
                                                         focusedErrorBorder:
                                                             OutlineInputBorder(
@@ -445,11 +453,12 @@ class _AuthenticationWidgetState extends State<AuthenticationWidget>
                                                               BorderSide(
                                                             color: Color(
                                                                 0xFFFF5963),
-                                                            width: 2,
+                                                            width: 2.0,
                                                           ),
                                                           borderRadius:
                                                               BorderRadius
-                                                                  .circular(8),
+                                                                  .circular(
+                                                                      8.0),
                                                         ),
                                                         filled: true,
                                                         fillColor:
@@ -463,7 +472,7 @@ class _AuthenticationWidgetState extends State<AuthenticationWidget>
                                                                 'Plus Jakarta Sans',
                                                             color: Color(
                                                                 0xFF101213),
-                                                            fontSize: 14,
+                                                            fontSize: 14.0,
                                                             fontWeight:
                                                                 FontWeight.w500,
                                                           ),
@@ -475,8 +484,8 @@ class _AuthenticationWidgetState extends State<AuthenticationWidget>
                                                   Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                8, 0, 8, 16),
+                                                            .fromSTEB(8.0, 0.0,
+                                                                8.0, 16.0),
                                                     child: TextFormField(
                                                       controller: _model
                                                           .passwordController,
@@ -499,7 +508,8 @@ class _AuthenticationWidgetState extends State<AuthenticationWidget>
                                                                       'Plus Jakarta Sans',
                                                                   color: Color(
                                                                       0xFF57636C),
-                                                                  fontSize: 14,
+                                                                  fontSize:
+                                                                      14.0,
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .w500,
@@ -513,7 +523,8 @@ class _AuthenticationWidgetState extends State<AuthenticationWidget>
                                                                       'Plus Jakarta Sans',
                                                                   color: Color(
                                                                       0xFF57636C),
-                                                                  fontSize: 14,
+                                                                  fontSize:
+                                                                      14.0,
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .w500,
@@ -524,11 +535,12 @@ class _AuthenticationWidgetState extends State<AuthenticationWidget>
                                                               BorderSide(
                                                             color: Color(
                                                                 0xFFE0E3E7),
-                                                            width: 2,
+                                                            width: 2.0,
                                                           ),
                                                           borderRadius:
                                                               BorderRadius
-                                                                  .circular(8),
+                                                                  .circular(
+                                                                      8.0),
                                                         ),
                                                         focusedBorder:
                                                             OutlineInputBorder(
@@ -536,11 +548,12 @@ class _AuthenticationWidgetState extends State<AuthenticationWidget>
                                                               BorderSide(
                                                             color: Color(
                                                                 0xFF4B39EF),
-                                                            width: 2,
+                                                            width: 2.0,
                                                           ),
                                                           borderRadius:
                                                               BorderRadius
-                                                                  .circular(8),
+                                                                  .circular(
+                                                                      8.0),
                                                         ),
                                                         errorBorder:
                                                             OutlineInputBorder(
@@ -548,11 +561,12 @@ class _AuthenticationWidgetState extends State<AuthenticationWidget>
                                                               BorderSide(
                                                             color: Color(
                                                                 0xFFFF5963),
-                                                            width: 2,
+                                                            width: 2.0,
                                                           ),
                                                           borderRadius:
                                                               BorderRadius
-                                                                  .circular(8),
+                                                                  .circular(
+                                                                      8.0),
                                                         ),
                                                         focusedErrorBorder:
                                                             OutlineInputBorder(
@@ -560,11 +574,12 @@ class _AuthenticationWidgetState extends State<AuthenticationWidget>
                                                               BorderSide(
                                                             color: Color(
                                                                 0xFFFF5963),
-                                                            width: 2,
+                                                            width: 2.0,
                                                           ),
                                                           borderRadius:
                                                               BorderRadius
-                                                                  .circular(8),
+                                                                  .circular(
+                                                                      8.0),
                                                         ),
                                                         filled: true,
                                                         fillColor:
@@ -587,7 +602,7 @@ class _AuthenticationWidgetState extends State<AuthenticationWidget>
                                                                     .visibility_off_outlined,
                                                             color: Color(
                                                                 0xFF57636C),
-                                                            size: 20,
+                                                            size: 20.0,
                                                           ),
                                                         ),
                                                       ),
@@ -599,7 +614,7 @@ class _AuthenticationWidgetState extends State<AuthenticationWidget>
                                                                 'Plus Jakarta Sans',
                                                             color: Color(
                                                                 0xFF101213),
-                                                            fontSize: 14,
+                                                            fontSize: 14.0,
                                                             fontWeight:
                                                                 FontWeight.w500,
                                                           ),
@@ -611,12 +626,15 @@ class _AuthenticationWidgetState extends State<AuthenticationWidget>
                                                   Align(
                                                     alignment:
                                                         AlignmentDirectional(
-                                                            0, 0),
+                                                            0.0, 0.0),
                                                     child: Padding(
                                                       padding:
                                                           EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  0, 0, 0, 16),
+                                                                  0.0,
+                                                                  0.0,
+                                                                  0.0,
+                                                                  16.0),
                                                       child: FFButtonWidget(
                                                         onPressed: () async {
                                                           GoRouter.of(context)
@@ -677,16 +695,22 @@ class _AuthenticationWidgetState extends State<AuthenticationWidget>
                                                         text: 'Sign in',
                                                         options:
                                                             FFButtonOptions(
-                                                          width: 230,
-                                                          height: 52,
+                                                          width: 230.0,
+                                                          height: 52.0,
                                                           padding:
                                                               EdgeInsetsDirectional
-                                                                  .fromSTEB(0,
-                                                                      0, 0, 0),
+                                                                  .fromSTEB(
+                                                                      0.0,
+                                                                      0.0,
+                                                                      0.0,
+                                                                      0.0),
                                                           iconPadding:
                                                               EdgeInsetsDirectional
-                                                                  .fromSTEB(0,
-                                                                      0, 0, 0),
+                                                                  .fromSTEB(
+                                                                      0.0,
+                                                                      0.0,
+                                                                      0.0,
+                                                                      0.0),
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .secondary,
@@ -700,21 +724,22 @@ class _AuthenticationWidgetState extends State<AuthenticationWidget>
                                                                     color: Colors
                                                                         .white,
                                                                     fontSize:
-                                                                        16,
+                                                                        16.0,
                                                                     fontWeight:
                                                                         FontWeight
                                                                             .w500,
                                                                   ),
-                                                          elevation: 3,
+                                                          elevation: 3.0,
                                                           borderSide:
                                                               BorderSide(
                                                             color: Colors
                                                                 .transparent,
-                                                            width: 1,
+                                                            width: 1.0,
                                                           ),
                                                           borderRadius:
                                                               BorderRadius
-                                                                  .circular(40),
+                                                                  .circular(
+                                                                      40.0),
                                                         ),
                                                       ),
                                                     ),
@@ -726,15 +751,15 @@ class _AuthenticationWidgetState extends State<AuthenticationWidget>
                                                       Align(
                                                         alignment:
                                                             AlignmentDirectional(
-                                                                0, 0),
+                                                                0.0, 0.0),
                                                         child: Padding(
                                                           padding:
                                                               EdgeInsetsDirectional
                                                                   .fromSTEB(
-                                                                      16,
-                                                                      0,
-                                                                      16,
-                                                                      12),
+                                                                      16.0,
+                                                                      0.0,
+                                                                      16.0,
+                                                                      12.0),
                                                           child: Text(
                                                             'Or sign in with',
                                                             textAlign: TextAlign
@@ -748,7 +773,8 @@ class _AuthenticationWidgetState extends State<AuthenticationWidget>
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
                                                                       .secondaryText,
-                                                                  fontSize: 14,
+                                                                  fontSize:
+                                                                      14.0,
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .w500,
@@ -759,7 +785,7 @@ class _AuthenticationWidgetState extends State<AuthenticationWidget>
                                                       Align(
                                                         alignment:
                                                             AlignmentDirectional(
-                                                                0, 0),
+                                                                0.0, 0.0),
                                                         child: Container(
                                                           width:
                                                               MediaQuery.sizeOf(
@@ -788,10 +814,10 @@ class _AuthenticationWidgetState extends State<AuthenticationWidget>
                                                                 child: Padding(
                                                                   padding: EdgeInsetsDirectional
                                                                       .fromSTEB(
-                                                                          0,
-                                                                          0,
-                                                                          4,
-                                                                          16),
+                                                                          0.0,
+                                                                          0.0,
+                                                                          4.0,
+                                                                          16.0),
                                                                   child:
                                                                       FFButtonWidget(
                                                                     onPressed:
@@ -818,7 +844,8 @@ class _AuthenticationWidgetState extends State<AuthenticationWidget>
                                                                         FaIcon(
                                                                       FontAwesomeIcons
                                                                           .google,
-                                                                      size: 20,
+                                                                      size:
+                                                                          20.0,
                                                                     ),
                                                                     options:
                                                                         FFButtonOptions(
@@ -826,19 +853,17 @@ class _AuthenticationWidgetState extends State<AuthenticationWidget>
                                                                               .width *
                                                                           0.5,
                                                                       height:
-                                                                          44,
-                                                                      padding: EdgeInsetsDirectional
-                                                                          .fromSTEB(
-                                                                              0,
-                                                                              0,
-                                                                              0,
-                                                                              0),
-                                                                      iconPadding:
-                                                                          EdgeInsetsDirectional.fromSTEB(
-                                                                              0,
-                                                                              0,
-                                                                              0,
-                                                                              0),
+                                                                          44.0,
+                                                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0),
+                                                                      iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0),
                                                                       color: Colors
                                                                           .white,
                                                                       textStyle: FlutterFlowTheme.of(
@@ -850,22 +875,22 @@ class _AuthenticationWidgetState extends State<AuthenticationWidget>
                                                                             color:
                                                                                 Color(0xFF101213),
                                                                             fontSize:
-                                                                                14,
+                                                                                14.0,
                                                                             fontWeight:
                                                                                 FontWeight.bold,
                                                                           ),
                                                                       elevation:
-                                                                          0,
+                                                                          0.0,
                                                                       borderSide:
                                                                           BorderSide(
                                                                         color: Color(
                                                                             0xFFE0E3E7),
                                                                         width:
-                                                                            2,
+                                                                            2.0,
                                                                       ),
                                                                       borderRadius:
                                                                           BorderRadius.circular(
-                                                                              40),
+                                                                              40.0),
                                                                       hoverColor:
                                                                           Color(
                                                                               0xFFF1F4F8),
@@ -879,10 +904,10 @@ class _AuthenticationWidgetState extends State<AuthenticationWidget>
                                                                       child:
                                                                           Padding(
                                                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                                                            4,
-                                                                            0,
-                                                                            0,
-                                                                            16),
+                                                                            4.0,
+                                                                            0.0,
+                                                                            0.0,
+                                                                            16.0),
                                                                         child:
                                                                             FFButtonWidget(
                                                                           onPressed:
@@ -904,41 +929,41 @@ class _AuthenticationWidgetState extends State<AuthenticationWidget>
                                                                               FaIcon(
                                                                             FontAwesomeIcons.apple,
                                                                             size:
-                                                                                20,
+                                                                                20.0,
                                                                           ),
                                                                           options:
                                                                               FFButtonOptions(
                                                                             width:
                                                                                 MediaQuery.sizeOf(context).width * 0.5,
                                                                             height:
-                                                                                44,
+                                                                                44.0,
                                                                             padding: EdgeInsetsDirectional.fromSTEB(
-                                                                                0,
-                                                                                0,
-                                                                                0,
-                                                                                0),
+                                                                                0.0,
+                                                                                0.0,
+                                                                                0.0,
+                                                                                0.0),
                                                                             iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                                                                0,
-                                                                                0,
-                                                                                0,
-                                                                                0),
+                                                                                0.0,
+                                                                                0.0,
+                                                                                0.0,
+                                                                                0.0),
                                                                             color:
                                                                                 Colors.white,
                                                                             textStyle: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                   fontFamily: 'Plus Jakarta Sans',
                                                                                   color: Color(0xFF101213),
-                                                                                  fontSize: 14,
+                                                                                  fontSize: 14.0,
                                                                                   fontWeight: FontWeight.bold,
                                                                                 ),
                                                                             elevation:
-                                                                                0,
+                                                                                0.0,
                                                                             borderSide:
                                                                                 BorderSide(
                                                                               color: Color(0xFFE0E3E7),
-                                                                              width: 2,
+                                                                              width: 2.0,
                                                                             ),
                                                                             borderRadius:
-                                                                                BorderRadius.circular(40),
+                                                                                BorderRadius.circular(40.0),
                                                                             hoverColor:
                                                                                 Color(0xFFF1F4F8),
                                                                           ),
@@ -954,12 +979,15 @@ class _AuthenticationWidgetState extends State<AuthenticationWidget>
                                                   Align(
                                                     alignment:
                                                         AlignmentDirectional(
-                                                            0, 0),
+                                                            0.0, 0.0),
                                                     child: Padding(
                                                       padding:
                                                           EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  0, 0, 0, 16),
+                                                                  0.0,
+                                                                  0.0,
+                                                                  0.0,
+                                                                  16.0),
                                                       child: FFButtonWidget(
                                                         onPressed: () {
                                                           print(
@@ -969,15 +997,21 @@ class _AuthenticationWidgetState extends State<AuthenticationWidget>
                                                             'Forgot Password?',
                                                         options:
                                                             FFButtonOptions(
-                                                          height: 44,
+                                                          height: 44.0,
                                                           padding:
                                                               EdgeInsetsDirectional
-                                                                  .fromSTEB(32,
-                                                                      0, 32, 0),
+                                                                  .fromSTEB(
+                                                                      32.0,
+                                                                      0.0,
+                                                                      32.0,
+                                                                      0.0),
                                                           iconPadding:
                                                               EdgeInsetsDirectional
-                                                                  .fromSTEB(0,
-                                                                      0, 0, 0),
+                                                                  .fromSTEB(
+                                                                      0.0,
+                                                                      0.0,
+                                                                      0.0,
+                                                                      0.0),
                                                           color: Colors.white,
                                                           textStyle:
                                                               FlutterFlowTheme.of(
@@ -989,20 +1023,21 @@ class _AuthenticationWidgetState extends State<AuthenticationWidget>
                                                                     color: Color(
                                                                         0xFF101213),
                                                                     fontSize:
-                                                                        14,
+                                                                        14.0,
                                                                     fontWeight:
                                                                         FontWeight
                                                                             .bold,
                                                                   ),
-                                                          elevation: 0,
+                                                          elevation: 0.0,
                                                           borderSide:
                                                               BorderSide(
                                                             color: Colors.white,
-                                                            width: 2,
+                                                            width: 2.0,
                                                           ),
                                                           borderRadius:
                                                               BorderRadius
-                                                                  .circular(40),
+                                                                  .circular(
+                                                                      40.0),
                                                           hoverColor:
                                                               Color(0xFFF1F4F8),
                                                         ),
@@ -1016,10 +1051,11 @@ class _AuthenticationWidgetState extends State<AuthenticationWidget>
                                           ),
                                           Align(
                                             alignment:
-                                                AlignmentDirectional(0, -1),
+                                                AlignmentDirectional(0.0, -1.0),
                                             child: Padding(
                                               padding: EdgeInsetsDirectional
-                                                  .fromSTEB(24, 16, 24, 0),
+                                                  .fromSTEB(
+                                                      24.0, 16.0, 24.0, 0.0),
                                               child: SingleChildScrollView(
                                                 child: Column(
                                                   mainAxisSize:
@@ -1033,8 +1069,8 @@ class _AuthenticationWidgetState extends State<AuthenticationWidget>
                                                       tablet: false,
                                                     ))
                                                       Container(
-                                                        width: 230,
-                                                        height: 16,
+                                                        width: 230.0,
+                                                        height: 16.0,
                                                         decoration:
                                                             BoxDecoration(
                                                           color: Colors.white,
@@ -1052,7 +1088,7 @@ class _AuthenticationWidgetState extends State<AuthenticationWidget>
                                                                 'Plus Jakarta Sans',
                                                             color: Color(
                                                                 0xFF101213),
-                                                            fontSize: 24,
+                                                            fontSize: 24.0,
                                                             fontWeight:
                                                                 FontWeight.w500,
                                                           ),
@@ -1061,7 +1097,10 @@ class _AuthenticationWidgetState extends State<AuthenticationWidget>
                                                       padding:
                                                           EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  8, 24, 8, 16),
+                                                                  8.0,
+                                                                  24.0,
+                                                                  8.0,
+                                                                  16.0),
                                                       child: TextFormField(
                                                         controller: _model
                                                             .nameCreateController,
@@ -1084,7 +1123,7 @@ class _AuthenticationWidgetState extends State<AuthenticationWidget>
                                                                     color: Color(
                                                                         0xFF57636C),
                                                                     fontSize:
-                                                                        14,
+                                                                        14.0,
                                                                     fontWeight:
                                                                         FontWeight
                                                                             .w500,
@@ -1099,7 +1138,7 @@ class _AuthenticationWidgetState extends State<AuthenticationWidget>
                                                                     color: Color(
                                                                         0xFF57636C),
                                                                     fontSize:
-                                                                        14,
+                                                                        14.0,
                                                                     fontWeight:
                                                                         FontWeight
                                                                             .w500,
@@ -1110,12 +1149,12 @@ class _AuthenticationWidgetState extends State<AuthenticationWidget>
                                                                 BorderSide(
                                                               color: Color(
                                                                   0xFFE0E3E7),
-                                                              width: 2,
+                                                              width: 2.0,
                                                             ),
                                                             borderRadius:
                                                                 BorderRadius
                                                                     .circular(
-                                                                        8),
+                                                                        8.0),
                                                           ),
                                                           focusedBorder:
                                                               OutlineInputBorder(
@@ -1123,12 +1162,12 @@ class _AuthenticationWidgetState extends State<AuthenticationWidget>
                                                                 BorderSide(
                                                               color: Color(
                                                                   0xFF4B39EF),
-                                                              width: 2,
+                                                              width: 2.0,
                                                             ),
                                                             borderRadius:
                                                                 BorderRadius
                                                                     .circular(
-                                                                        8),
+                                                                        8.0),
                                                           ),
                                                           errorBorder:
                                                               OutlineInputBorder(
@@ -1136,12 +1175,12 @@ class _AuthenticationWidgetState extends State<AuthenticationWidget>
                                                                 BorderSide(
                                                               color: Color(
                                                                   0xFFFF5963),
-                                                              width: 2,
+                                                              width: 2.0,
                                                             ),
                                                             borderRadius:
                                                                 BorderRadius
                                                                     .circular(
-                                                                        8),
+                                                                        8.0),
                                                           ),
                                                           focusedErrorBorder:
                                                               OutlineInputBorder(
@@ -1149,31 +1188,30 @@ class _AuthenticationWidgetState extends State<AuthenticationWidget>
                                                                 BorderSide(
                                                               color: Color(
                                                                   0xFFFF5963),
-                                                              width: 2,
+                                                              width: 2.0,
                                                             ),
                                                             borderRadius:
                                                                 BorderRadius
                                                                     .circular(
-                                                                        8),
+                                                                        8.0),
                                                           ),
                                                           filled: true,
                                                           fillColor:
                                                               Color(0xCCFFFFFF),
                                                         ),
-                                                        style:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Plus Jakarta Sans',
-                                                                  color: Color(
-                                                                      0xFF101213),
-                                                                  fontSize: 14,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .w500,
-                                                                ),
+                                                        style: FlutterFlowTheme
+                                                                .of(context)
+                                                            .bodyMedium
+                                                            .override(
+                                                              fontFamily:
+                                                                  'Plus Jakarta Sans',
+                                                              color: Color(
+                                                                  0xFF101213),
+                                                              fontSize: 14.0,
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .w500,
+                                                            ),
                                                         validator: _model
                                                             .nameCreateControllerValidator
                                                             .asValidator(
@@ -1184,7 +1222,10 @@ class _AuthenticationWidgetState extends State<AuthenticationWidget>
                                                       padding:
                                                           EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  8, 0, 8, 16),
+                                                                  8.0,
+                                                                  0.0,
+                                                                  8.0,
+                                                                  16.0),
                                                       child: TextFormField(
                                                         controller: _model
                                                             .emailAddressCreateController,
@@ -1207,7 +1248,7 @@ class _AuthenticationWidgetState extends State<AuthenticationWidget>
                                                                     color: Color(
                                                                         0xFF57636C),
                                                                     fontSize:
-                                                                        14,
+                                                                        14.0,
                                                                     fontWeight:
                                                                         FontWeight
                                                                             .w500,
@@ -1222,7 +1263,7 @@ class _AuthenticationWidgetState extends State<AuthenticationWidget>
                                                                     color: Color(
                                                                         0xFF57636C),
                                                                     fontSize:
-                                                                        14,
+                                                                        14.0,
                                                                     fontWeight:
                                                                         FontWeight
                                                                             .w500,
@@ -1233,12 +1274,12 @@ class _AuthenticationWidgetState extends State<AuthenticationWidget>
                                                                 BorderSide(
                                                               color: Color(
                                                                   0xFFE0E3E7),
-                                                              width: 2,
+                                                              width: 2.0,
                                                             ),
                                                             borderRadius:
                                                                 BorderRadius
                                                                     .circular(
-                                                                        8),
+                                                                        8.0),
                                                           ),
                                                           focusedBorder:
                                                               OutlineInputBorder(
@@ -1246,12 +1287,12 @@ class _AuthenticationWidgetState extends State<AuthenticationWidget>
                                                                 BorderSide(
                                                               color: Color(
                                                                   0xFF4B39EF),
-                                                              width: 2,
+                                                              width: 2.0,
                                                             ),
                                                             borderRadius:
                                                                 BorderRadius
                                                                     .circular(
-                                                                        8),
+                                                                        8.0),
                                                           ),
                                                           errorBorder:
                                                               OutlineInputBorder(
@@ -1259,12 +1300,12 @@ class _AuthenticationWidgetState extends State<AuthenticationWidget>
                                                                 BorderSide(
                                                               color: Color(
                                                                   0xFFFF5963),
-                                                              width: 2,
+                                                              width: 2.0,
                                                             ),
                                                             borderRadius:
                                                                 BorderRadius
                                                                     .circular(
-                                                                        8),
+                                                                        8.0),
                                                           ),
                                                           focusedErrorBorder:
                                                               OutlineInputBorder(
@@ -1272,31 +1313,30 @@ class _AuthenticationWidgetState extends State<AuthenticationWidget>
                                                                 BorderSide(
                                                               color: Color(
                                                                   0xFFFF5963),
-                                                              width: 2,
+                                                              width: 2.0,
                                                             ),
                                                             borderRadius:
                                                                 BorderRadius
                                                                     .circular(
-                                                                        8),
+                                                                        8.0),
                                                           ),
                                                           filled: true,
                                                           fillColor:
                                                               Color(0xCCFFFFFF),
                                                         ),
-                                                        style:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Plus Jakarta Sans',
-                                                                  color: Color(
-                                                                      0xFF101213),
-                                                                  fontSize: 14,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .w500,
-                                                                ),
+                                                        style: FlutterFlowTheme
+                                                                .of(context)
+                                                            .bodyMedium
+                                                            .override(
+                                                              fontFamily:
+                                                                  'Plus Jakarta Sans',
+                                                              color: Color(
+                                                                  0xFF101213),
+                                                              fontSize: 14.0,
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .w500,
+                                                            ),
                                                         validator: _model
                                                             .emailAddressCreateControllerValidator
                                                             .asValidator(
@@ -1307,7 +1347,10 @@ class _AuthenticationWidgetState extends State<AuthenticationWidget>
                                                       padding:
                                                           EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  8, 0, 8, 16),
+                                                                  8.0,
+                                                                  0.0,
+                                                                  8.0,
+                                                                  16.0),
                                                       child: TextFormField(
                                                         controller: _model
                                                             .passwordCreateController,
@@ -1331,7 +1374,7 @@ class _AuthenticationWidgetState extends State<AuthenticationWidget>
                                                                     color: Color(
                                                                         0xFF57636C),
                                                                     fontSize:
-                                                                        14,
+                                                                        14.0,
                                                                     fontWeight:
                                                                         FontWeight
                                                                             .w500,
@@ -1346,7 +1389,7 @@ class _AuthenticationWidgetState extends State<AuthenticationWidget>
                                                                     color: Color(
                                                                         0xFF57636C),
                                                                     fontSize:
-                                                                        14,
+                                                                        14.0,
                                                                     fontWeight:
                                                                         FontWeight
                                                                             .w500,
@@ -1357,12 +1400,12 @@ class _AuthenticationWidgetState extends State<AuthenticationWidget>
                                                                 BorderSide(
                                                               color: Color(
                                                                   0xFFE0E3E7),
-                                                              width: 2,
+                                                              width: 2.0,
                                                             ),
                                                             borderRadius:
                                                                 BorderRadius
                                                                     .circular(
-                                                                        8),
+                                                                        8.0),
                                                           ),
                                                           focusedBorder:
                                                               OutlineInputBorder(
@@ -1370,12 +1413,12 @@ class _AuthenticationWidgetState extends State<AuthenticationWidget>
                                                                 BorderSide(
                                                               color: Color(
                                                                   0xFF4B39EF),
-                                                              width: 2,
+                                                              width: 2.0,
                                                             ),
                                                             borderRadius:
                                                                 BorderRadius
                                                                     .circular(
-                                                                        8),
+                                                                        8.0),
                                                           ),
                                                           errorBorder:
                                                               OutlineInputBorder(
@@ -1383,12 +1426,12 @@ class _AuthenticationWidgetState extends State<AuthenticationWidget>
                                                                 BorderSide(
                                                               color: Color(
                                                                   0xFFFF5963),
-                                                              width: 2,
+                                                              width: 2.0,
                                                             ),
                                                             borderRadius:
                                                                 BorderRadius
                                                                     .circular(
-                                                                        8),
+                                                                        8.0),
                                                           ),
                                                           focusedErrorBorder:
                                                               OutlineInputBorder(
@@ -1396,12 +1439,12 @@ class _AuthenticationWidgetState extends State<AuthenticationWidget>
                                                                 BorderSide(
                                                               color: Color(
                                                                   0xFFFF5963),
-                                                              width: 2,
+                                                              width: 2.0,
                                                             ),
                                                             borderRadius:
                                                                 BorderRadius
                                                                     .circular(
-                                                                        8),
+                                                                        8.0),
                                                           ),
                                                           filled: true,
                                                           fillColor:
@@ -1425,24 +1468,23 @@ class _AuthenticationWidgetState extends State<AuthenticationWidget>
                                                                       .visibility_off_outlined,
                                                               color: Color(
                                                                   0xFF57636C),
-                                                              size: 24,
+                                                              size: 24.0,
                                                             ),
                                                           ),
                                                         ),
-                                                        style:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Plus Jakarta Sans',
-                                                                  color: Color(
-                                                                      0xFF101213),
-                                                                  fontSize: 14,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .w500,
-                                                                ),
+                                                        style: FlutterFlowTheme
+                                                                .of(context)
+                                                            .bodyMedium
+                                                            .override(
+                                                              fontFamily:
+                                                                  'Plus Jakarta Sans',
+                                                              color: Color(
+                                                                  0xFF101213),
+                                                              fontSize: 14.0,
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .w500,
+                                                            ),
                                                         validator: _model
                                                             .passwordCreateControllerValidator
                                                             .asValidator(
@@ -1453,7 +1495,10 @@ class _AuthenticationWidgetState extends State<AuthenticationWidget>
                                                       padding:
                                                           EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  8, 0, 8, 16),
+                                                                  8.0,
+                                                                  0.0,
+                                                                  8.0,
+                                                                  16.0),
                                                       child: TextFormField(
                                                         controller: _model
                                                             .passwordConfirmController,
@@ -1478,7 +1523,7 @@ class _AuthenticationWidgetState extends State<AuthenticationWidget>
                                                                     color: Color(
                                                                         0xFF57636C),
                                                                     fontSize:
-                                                                        14,
+                                                                        14.0,
                                                                     fontWeight:
                                                                         FontWeight
                                                                             .w500,
@@ -1493,7 +1538,7 @@ class _AuthenticationWidgetState extends State<AuthenticationWidget>
                                                                     color: Color(
                                                                         0xFF57636C),
                                                                     fontSize:
-                                                                        14,
+                                                                        14.0,
                                                                     fontWeight:
                                                                         FontWeight
                                                                             .w500,
@@ -1504,12 +1549,12 @@ class _AuthenticationWidgetState extends State<AuthenticationWidget>
                                                                 BorderSide(
                                                               color: Color(
                                                                   0xFFE0E3E7),
-                                                              width: 2,
+                                                              width: 2.0,
                                                             ),
                                                             borderRadius:
                                                                 BorderRadius
                                                                     .circular(
-                                                                        8),
+                                                                        8.0),
                                                           ),
                                                           focusedBorder:
                                                               OutlineInputBorder(
@@ -1517,12 +1562,12 @@ class _AuthenticationWidgetState extends State<AuthenticationWidget>
                                                                 BorderSide(
                                                               color: Color(
                                                                   0xFF4B39EF),
-                                                              width: 2,
+                                                              width: 2.0,
                                                             ),
                                                             borderRadius:
                                                                 BorderRadius
                                                                     .circular(
-                                                                        8),
+                                                                        8.0),
                                                           ),
                                                           errorBorder:
                                                               OutlineInputBorder(
@@ -1530,12 +1575,12 @@ class _AuthenticationWidgetState extends State<AuthenticationWidget>
                                                                 BorderSide(
                                                               color: Color(
                                                                   0xFFFF5963),
-                                                              width: 2,
+                                                              width: 2.0,
                                                             ),
                                                             borderRadius:
                                                                 BorderRadius
                                                                     .circular(
-                                                                        8),
+                                                                        8.0),
                                                           ),
                                                           focusedErrorBorder:
                                                               OutlineInputBorder(
@@ -1543,12 +1588,12 @@ class _AuthenticationWidgetState extends State<AuthenticationWidget>
                                                                 BorderSide(
                                                               color: Color(
                                                                   0xFFFF5963),
-                                                              width: 2,
+                                                              width: 2.0,
                                                             ),
                                                             borderRadius:
                                                                 BorderRadius
                                                                     .circular(
-                                                                        8),
+                                                                        8.0),
                                                           ),
                                                           filled: true,
                                                           fillColor:
@@ -1572,24 +1617,23 @@ class _AuthenticationWidgetState extends State<AuthenticationWidget>
                                                                       .visibility_off_outlined,
                                                               color: Color(
                                                                   0xFF57636C),
-                                                              size: 24,
+                                                              size: 24.0,
                                                             ),
                                                           ),
                                                         ),
-                                                        style:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Plus Jakarta Sans',
-                                                                  color: Color(
-                                                                      0xFF101213),
-                                                                  fontSize: 14,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .w500,
-                                                                ),
+                                                        style: FlutterFlowTheme
+                                                                .of(context)
+                                                            .bodyMedium
+                                                            .override(
+                                                              fontFamily:
+                                                                  'Plus Jakarta Sans',
+                                                              color: Color(
+                                                                  0xFF101213),
+                                                              fontSize: 14.0,
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .w500,
+                                                            ),
                                                         validator: _model
                                                             .passwordConfirmControllerValidator
                                                             .asValidator(
@@ -1599,12 +1643,15 @@ class _AuthenticationWidgetState extends State<AuthenticationWidget>
                                                     Align(
                                                       alignment:
                                                           AlignmentDirectional(
-                                                              0, 0),
+                                                              0.0, 0.0),
                                                       child: Padding(
                                                         padding:
                                                             EdgeInsetsDirectional
-                                                                .fromSTEB(0, 0,
-                                                                    0, 16),
+                                                                .fromSTEB(
+                                                                    0.0,
+                                                                    0.0,
+                                                                    0.0,
+                                                                    16.0),
                                                         child: FFButtonWidget(
                                                           onPressed: () async {
                                                             GoRouter.of(context)
@@ -1649,6 +1696,10 @@ class _AuthenticationWidgetState extends State<AuthenticationWidget>
                                                                     createUsersRecordData(
                                                                   photoUrl:
                                                                       'https://isobarscience-1bfd8.kxcdn.com/wp-content/uploads/2020/09/default-profile-picture1.jpg',
+                                                                  displayName:
+                                                                      _model
+                                                                          .nameCreateController
+                                                                          .text,
                                                                 ));
 
                                                             context.pushNamedAuth(
@@ -1659,22 +1710,22 @@ class _AuthenticationWidgetState extends State<AuthenticationWidget>
                                                           text: 'Sign Up',
                                                           options:
                                                               FFButtonOptions(
-                                                            width: 230,
-                                                            height: 52,
+                                                            width: 230.0,
+                                                            height: 52.0,
                                                             padding:
                                                                 EdgeInsetsDirectional
                                                                     .fromSTEB(
-                                                                        0,
-                                                                        0,
-                                                                        0,
-                                                                        0),
+                                                                        0.0,
+                                                                        0.0,
+                                                                        0.0,
+                                                                        0.0),
                                                             iconPadding:
                                                                 EdgeInsetsDirectional
                                                                     .fromSTEB(
-                                                                        0,
-                                                                        0,
-                                                                        0,
-                                                                        0),
+                                                                        0.0,
+                                                                        0.0,
+                                                                        0.0,
+                                                                        0.0),
                                                             color: FlutterFlowTheme
                                                                     .of(context)
                                                                 .secondary,
@@ -1688,22 +1739,22 @@ class _AuthenticationWidgetState extends State<AuthenticationWidget>
                                                                       color: Colors
                                                                           .white,
                                                                       fontSize:
-                                                                          16,
+                                                                          16.0,
                                                                       fontWeight:
                                                                           FontWeight
                                                                               .w500,
                                                                     ),
-                                                            elevation: 3,
+                                                            elevation: 3.0,
                                                             borderSide:
                                                                 BorderSide(
                                                               color: Colors
                                                                   .transparent,
-                                                              width: 1,
+                                                              width: 1.0,
                                                             ),
                                                             borderRadius:
                                                                 BorderRadius
                                                                     .circular(
-                                                                        40),
+                                                                        40.0),
                                                           ),
                                                         ),
                                                       ),
@@ -1715,15 +1766,15 @@ class _AuthenticationWidgetState extends State<AuthenticationWidget>
                                                         Align(
                                                           alignment:
                                                               AlignmentDirectional(
-                                                                  0, 0),
+                                                                  0.0, 0.0),
                                                           child: Padding(
                                                             padding:
                                                                 EdgeInsetsDirectional
                                                                     .fromSTEB(
-                                                                        16,
-                                                                        0,
-                                                                        16,
-                                                                        4),
+                                                                        16.0,
+                                                                        0.0,
+                                                                        16.0,
+                                                                        4.0),
                                                             child: Text(
                                                               'Or sign up with',
                                                               textAlign:
@@ -1738,7 +1789,7 @@ class _AuthenticationWidgetState extends State<AuthenticationWidget>
                                                                     color: Color(
                                                                         0xFF57636C),
                                                                     fontSize:
-                                                                        14,
+                                                                        14.0,
                                                                     fontWeight:
                                                                         FontWeight
                                                                             .w500,
@@ -1749,7 +1800,7 @@ class _AuthenticationWidgetState extends State<AuthenticationWidget>
                                                         Align(
                                                           alignment:
                                                               AlignmentDirectional(
-                                                                  0, 0),
+                                                                  0.0, 0.0),
                                                           child: Container(
                                                             width: MediaQuery
                                                                         .sizeOf(
@@ -1783,10 +1834,10 @@ class _AuthenticationWidgetState extends State<AuthenticationWidget>
                                                                       Padding(
                                                                     padding: EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            0,
-                                                                            0,
-                                                                            4,
-                                                                            16),
+                                                                            0.0,
+                                                                            0.0,
+                                                                            4.0,
+                                                                            16.0),
                                                                     child:
                                                                         FFButtonWidget(
                                                                       onPressed:
@@ -1811,24 +1862,24 @@ class _AuthenticationWidgetState extends State<AuthenticationWidget>
                                                                         FontAwesomeIcons
                                                                             .google,
                                                                         size:
-                                                                            20,
+                                                                            20.0,
                                                                       ),
                                                                       options:
                                                                           FFButtonOptions(
                                                                         width: MediaQuery.sizeOf(context).width *
                                                                             0.5,
                                                                         height:
-                                                                            44,
+                                                                            44.0,
                                                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                                                            0,
-                                                                            0,
-                                                                            0,
-                                                                            0),
+                                                                            0.0,
+                                                                            0.0,
+                                                                            0.0,
+                                                                            0.0),
                                                                         iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                                                            0,
-                                                                            0,
-                                                                            0,
-                                                                            0),
+                                                                            0.0,
+                                                                            0.0,
+                                                                            0.0,
+                                                                            0.0),
                                                                         color: Colors
                                                                             .white,
                                                                         textStyle: FlutterFlowTheme.of(context)
@@ -1836,20 +1887,20 @@ class _AuthenticationWidgetState extends State<AuthenticationWidget>
                                                                             .override(
                                                                               fontFamily: 'Plus Jakarta Sans',
                                                                               color: Color(0xFF101213),
-                                                                              fontSize: 14,
+                                                                              fontSize: 14.0,
                                                                               fontWeight: FontWeight.bold,
                                                                             ),
                                                                         elevation:
-                                                                            0,
+                                                                            0.0,
                                                                         borderSide:
                                                                             BorderSide(
                                                                           color:
                                                                               Color(0xFFE0E3E7),
                                                                           width:
-                                                                              2,
+                                                                              2.0,
                                                                         ),
                                                                         borderRadius:
-                                                                            BorderRadius.circular(40),
+                                                                            BorderRadius.circular(40.0),
                                                                         hoverColor:
                                                                             Color(0xFFF1F4F8),
                                                                       ),
@@ -1862,10 +1913,10 @@ class _AuthenticationWidgetState extends State<AuthenticationWidget>
                                                                         child:
                                                                             Padding(
                                                                           padding: EdgeInsetsDirectional.fromSTEB(
-                                                                              4,
-                                                                              0,
-                                                                              0,
-                                                                              16),
+                                                                              4.0,
+                                                                              0.0,
+                                                                              0.0,
+                                                                              16.0),
                                                                           child:
                                                                               FFButtonWidget(
                                                                             onPressed:
@@ -1883,27 +1934,27 @@ class _AuthenticationWidgetState extends State<AuthenticationWidget>
                                                                             icon:
                                                                                 FaIcon(
                                                                               FontAwesomeIcons.apple,
-                                                                              size: 20,
+                                                                              size: 20.0,
                                                                             ),
                                                                             options:
                                                                                 FFButtonOptions(
                                                                               width: MediaQuery.sizeOf(context).width * 0.5,
-                                                                              height: 44,
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
-                                                                              iconPadding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                                                                              height: 44.0,
+                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                                                              iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                                                                               color: Colors.white,
                                                                               textStyle: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                     fontFamily: 'Plus Jakarta Sans',
                                                                                     color: Color(0xFF101213),
-                                                                                    fontSize: 14,
+                                                                                    fontSize: 14.0,
                                                                                     fontWeight: FontWeight.bold,
                                                                                   ),
-                                                                              elevation: 0,
+                                                                              elevation: 0.0,
                                                                               borderSide: BorderSide(
                                                                                 color: Color(0xFFE0E3E7),
-                                                                                width: 2,
+                                                                                width: 2.0,
                                                                               ),
-                                                                              borderRadius: BorderRadius.circular(40),
+                                                                              borderRadius: BorderRadius.circular(40.0),
                                                                               hoverColor: Color(0xFFF1F4F8),
                                                                             ),
                                                                           ),

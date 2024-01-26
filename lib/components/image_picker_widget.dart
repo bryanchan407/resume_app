@@ -12,18 +12,18 @@ export 'image_picker_model.dart';
 
 class ImagePickerWidget extends StatefulWidget {
   const ImagePickerWidget({
-    Key? key,
+    super.key,
     required this.imagePathInitial,
     required this.index,
     required this.typeEC,
-  }) : super(key: key);
+  });
 
   final String? imagePathInitial;
   final int? index;
   final String? typeEC;
 
   @override
-  _ImagePickerWidgetState createState() => _ImagePickerWidgetState();
+  State<ImagePickerWidget> createState() => _ImagePickerWidgetState();
 }
 
 class _ImagePickerWidgetState extends State<ImagePickerWidget> {
@@ -39,6 +39,8 @@ class _ImagePickerWidgetState extends State<ImagePickerWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => ImagePickerModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -164,30 +166,40 @@ class _ImagePickerWidgetState extends State<ImagePickerWidget> {
         width: 60.0,
         height: 60.0,
         decoration: BoxDecoration(
-          color: FlutterFlowTheme.of(context).alternate,
+          color: FlutterFlowTheme.of(context).success,
           borderRadius: BorderRadius.circular(8.0),
           shape: BoxShape.rectangle,
         ),
-        child: ClipRRect(
-          borderRadius: BorderRadius.circular(8.0),
-          child: Image.network(
-            () {
-              if (_model.isDataUploading) {
-                return _model.uploadedFileUrl;
-              } else if (widget.imagePathInitial != null &&
-                  widget.imagePathInitial != '') {
-                return widget.imagePathInitial!;
-              } else {
-                return valueOrDefault<String>(
-                  _model.uploadedFileUrl,
-                  'https://www.ledr.com/colours/white.jpg',
-                );
-              }
-            }(),
-            width: double.infinity,
-            height: double.infinity,
-            fit: BoxFit.cover,
-          ),
+        child: Stack(
+          children: [
+            ClipRRect(
+              borderRadius: BorderRadius.circular(8.0),
+              child: Image.network(
+                () {
+                  if (_model.uploadedFileUrl != null &&
+                      _model.uploadedFileUrl != '') {
+                    return _model.uploadedFileUrl;
+                  } else if (widget.imagePathInitial != null &&
+                      widget.imagePathInitial != '') {
+                    return widget.imagePathInitial!;
+                  } else {
+                    return 'https://t3.ftcdn.net/jpg/03/76/74/78/360_F_376747823_L8il80K6c2CM1lnPYJhhJZQNl6ynX1yj.jpg';
+                  }
+                }(),
+                width: double.infinity,
+                height: double.infinity,
+                fit: BoxFit.cover,
+              ),
+            ),
+            Align(
+              alignment: AlignmentDirectional(0.0, 0.0),
+              child: Icon(
+                Icons.add,
+                color: FlutterFlowTheme.of(context).secondaryText,
+                size: 36.0,
+              ),
+            ),
+          ],
         ),
       ),
     );

@@ -17,14 +17,14 @@ export 'image_details_model.dart';
 
 class ImageDetailsWidget extends StatefulWidget {
   const ImageDetailsWidget({
-    Key? key,
+    super.key,
     required this.chatMessage,
-  }) : super(key: key);
+  });
 
   final ChatMessagesRecord? chatMessage;
 
   @override
-  _ImageDetailsWidgetState createState() => _ImageDetailsWidgetState();
+  State<ImageDetailsWidget> createState() => _ImageDetailsWidgetState();
 }
 
 class _ImageDetailsWidgetState extends State<ImageDetailsWidget>
@@ -94,6 +94,8 @@ class _ImageDetailsWidgetState extends State<ImageDetailsWidget>
   void initState() {
     super.initState();
     _model = createModel(context, () => ImageDetailsModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

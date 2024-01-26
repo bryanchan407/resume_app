@@ -17,14 +17,14 @@ export 'chat_details_overlay_model.dart';
 
 class ChatDetailsOverlayWidget extends StatefulWidget {
   const ChatDetailsOverlayWidget({
-    Key? key,
+    super.key,
     required this.chatRef,
-  }) : super(key: key);
+  });
 
   final ChatsRecord? chatRef;
 
   @override
-  _ChatDetailsOverlayWidgetState createState() =>
+  State<ChatDetailsOverlayWidget> createState() =>
       _ChatDetailsOverlayWidgetState();
 }
 
@@ -41,6 +41,8 @@ class _ChatDetailsOverlayWidgetState extends State<ChatDetailsOverlayWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => ChatDetailsOverlayModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

@@ -10,10 +10,10 @@ import 'search_profiles_model.dart';
 export 'search_profiles_model.dart';
 
 class SearchProfilesWidget extends StatefulWidget {
-  const SearchProfilesWidget({Key? key}) : super(key: key);
+  const SearchProfilesWidget({super.key});
 
   @override
-  _SearchProfilesWidgetState createState() => _SearchProfilesWidgetState();
+  State<SearchProfilesWidget> createState() => _SearchProfilesWidgetState();
 }
 
 class _SearchProfilesWidgetState extends State<SearchProfilesWidget> {
@@ -28,6 +28,8 @@ class _SearchProfilesWidgetState extends State<SearchProfilesWidget> {
 
     _model.textController ??= TextEditingController();
     _model.textFieldFocusNode ??= FocusNode();
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

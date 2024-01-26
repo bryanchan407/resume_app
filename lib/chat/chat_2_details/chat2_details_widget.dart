@@ -20,14 +20,14 @@ export 'chat2_details_model.dart';
 
 class Chat2DetailsWidget extends StatefulWidget {
   const Chat2DetailsWidget({
-    Key? key,
+    super.key,
     required this.chatRef,
-  }) : super(key: key);
+  });
 
   final ChatsRecord? chatRef;
 
   @override
-  _Chat2DetailsWidgetState createState() => _Chat2DetailsWidgetState();
+  State<Chat2DetailsWidget> createState() => _Chat2DetailsWidgetState();
 }
 
 class _Chat2DetailsWidgetState extends State<Chat2DetailsWidget> {
@@ -55,6 +55,8 @@ class _Chat2DetailsWidgetState extends State<Chat2DetailsWidget> {
         }(),
       );
     });
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

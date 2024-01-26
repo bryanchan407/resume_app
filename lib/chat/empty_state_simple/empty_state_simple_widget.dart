@@ -9,20 +9,19 @@ export 'empty_state_simple_model.dart';
 
 class EmptyStateSimpleWidget extends StatefulWidget {
   const EmptyStateSimpleWidget({
-    Key? key,
+    super.key,
     this.icon,
     String? title,
     String? body,
   })  : this.title = title ?? 'No Comments',
-        this.body = body ?? 'There are no comments associated with this post.',
-        super(key: key);
+        this.body = body ?? 'There are no comments associated with this post.';
 
   final Widget? icon;
   final String title;
   final String body;
 
   @override
-  _EmptyStateSimpleWidgetState createState() => _EmptyStateSimpleWidgetState();
+  State<EmptyStateSimpleWidget> createState() => _EmptyStateSimpleWidgetState();
 }
 
 class _EmptyStateSimpleWidgetState extends State<EmptyStateSimpleWidget> {
@@ -38,6 +37,8 @@ class _EmptyStateSimpleWidgetState extends State<EmptyStateSimpleWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => EmptyStateSimpleModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

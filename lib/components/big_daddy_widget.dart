@@ -20,10 +20,10 @@ import 'big_daddy_model.dart';
 export 'big_daddy_model.dart';
 
 class BigDaddyWidget extends StatefulWidget {
-  const BigDaddyWidget({Key? key}) : super(key: key);
+  const BigDaddyWidget({super.key});
 
   @override
-  _BigDaddyWidgetState createState() => _BigDaddyWidgetState();
+  State<BigDaddyWidget> createState() => _BigDaddyWidgetState();
 }
 
 class _BigDaddyWidgetState extends State<BigDaddyWidget> {
@@ -66,6 +66,8 @@ class _BigDaddyWidgetState extends State<BigDaddyWidget> {
                 .cast<EcStruct>();
       });
     });
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

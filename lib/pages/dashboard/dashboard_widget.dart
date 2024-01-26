@@ -17,14 +17,15 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:text_search/text_search.dart';
+
 import 'dashboard_model.dart';
 export 'dashboard_model.dart';
 
 class DashboardWidget extends StatefulWidget {
-  const DashboardWidget({Key? key}) : super(key: key);
+  const DashboardWidget({super.key});
 
   @override
-  _DashboardWidgetState createState() => _DashboardWidgetState();
+  State<DashboardWidget> createState() => _DashboardWidgetState();
 }
 
 class _DashboardWidgetState extends State<DashboardWidget>
@@ -47,6 +48,8 @@ class _DashboardWidgetState extends State<DashboardWidget>
 
     _model.textController2 ??= TextEditingController();
     _model.textFieldFocusNode ??= FocusNode();
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -80,8 +83,8 @@ class _DashboardWidgetState extends State<DashboardWidget>
             backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
             body: Center(
               child: SizedBox(
-                width: 50.0,
-                height: 50.0,
+                width: 50,
+                height: 50,
                 child: CircularProgressIndicator(
                   valueColor: AlwaysStoppedAnimation<Color>(
                     FlutterFlowTheme.of(context).primary,
@@ -101,7 +104,7 @@ class _DashboardWidgetState extends State<DashboardWidget>
             key: scaffoldKey,
             backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
             drawer: Drawer(
-              elevation: 16.0,
+              elevation: 16,
             ),
             body: SafeArea(
               top: true,
@@ -109,29 +112,28 @@ class _DashboardWidgetState extends State<DashboardWidget>
                 mainAxisSize: MainAxisSize.max,
                 children: [
                   Container(
-                    width: MediaQuery.sizeOf(context).width * 1.0,
+                    width: MediaQuery.sizeOf(context).width,
                     height: MediaQuery.sizeOf(context).height * 0.08,
                     decoration: BoxDecoration(
                       color: FlutterFlowTheme.of(context).primaryBackground,
                       shape: BoxShape.rectangle,
                     ),
                     child: Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 10.0, 0.0),
+                      padding: EdgeInsetsDirectional.fromSTEB(10, 0, 10, 0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Align(
-                            alignment: AlignmentDirectional(0.0, 0.0),
+                            alignment: AlignmentDirectional(0, 0),
                             child: Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 0.0, 8.0, 0.0),
+                              padding:
+                                  EdgeInsetsDirectional.fromSTEB(0, 0, 8, 0),
                               child: FlutterFlowIconButton(
                                 borderColor: FlutterFlowTheme.of(context)
                                     .primaryBackground,
-                                borderRadius: 20.0,
-                                borderWidth: 0.0,
+                                borderRadius: 20,
+                                borderWidth: 0,
                                 buttonSize:
                                     MediaQuery.sizeOf(context).width * 0.1,
                                 fillColor: FlutterFlowTheme.of(context)
@@ -140,7 +142,7 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                   Icons.menu,
                                   color:
                                       FlutterFlowTheme.of(context).primaryText,
-                                  size: 24.0,
+                                  size: 24,
                                 ),
                                 onPressed: () async {
                                   scaffoldKey.currentState!.openDrawer();
@@ -155,16 +157,16 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                 .override(
                                   fontFamily: 'Poppins',
                                   color: FlutterFlowTheme.of(context).primary,
-                                  fontSize: 36.0,
-                                  letterSpacing: 0.0,
+                                  fontSize: 36,
+                                  letterSpacing: 0,
                                   fontWeight: FontWeight.w500,
                                 ),
                           ),
                           Align(
-                            alignment: AlignmentDirectional(0.0, 0.0),
+                            alignment: AlignmentDirectional(0, 0),
                             child: Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  8.0, 0.0, 4.0, 0.0),
+                              padding:
+                                  EdgeInsetsDirectional.fromSTEB(8, 0, 4, 0),
                               child: AuthUserStreamWidget(
                                 builder: (context) => Container(
                                   width: MediaQuery.sizeOf(context).width * 0.1,
@@ -191,7 +193,7 @@ class _DashboardWidgetState extends State<DashboardWidget>
                   ),
                   Expanded(
                     child: Container(
-                      width: MediaQuery.sizeOf(context).width * 1.0,
+                      width: MediaQuery.sizeOf(context).width,
                       height: MediaQuery.sizeOf(context).height * 0.9,
                       decoration: BoxDecoration(
                         color: FlutterFlowTheme.of(context).primaryBackground,
@@ -208,7 +210,7 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                     children: [
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            16.0, 16.0, 16.0, 0.0),
+                                            16, 16, 16, 0),
                                         child: Autocomplete<String>(
                                           initialValue: TextEditingValue(),
                                           optionsBuilder: (textEditingValue) {
@@ -240,14 +242,14 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                                   FlutterFlowTheme.of(context)
                                                       .bodyMedium,
                                               textHighlightStyle: TextStyle(),
-                                              elevation: 4.0,
+                                              elevation: 4,
                                               optionBackgroundColor:
                                                   FlutterFlowTheme.of(context)
                                                       .primaryBackground,
                                               optionHighlightColor:
                                                   FlutterFlowTheme.of(context)
                                                       .secondaryBackground,
-                                              maxHeight: 200.0,
+                                              maxHeight: 200,
                                             );
                                           },
                                           onSelected: (String selection) {
@@ -332,40 +334,36 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                                     color: FlutterFlowTheme.of(
                                                             context)
                                                         .primaryText,
-                                                    width: 2.0,
+                                                    width: 2,
                                                   ),
                                                   borderRadius:
-                                                      BorderRadius.circular(
-                                                          10.0),
+                                                      BorderRadius.circular(10),
                                                 ),
                                                 focusedBorder:
                                                     OutlineInputBorder(
                                                   borderSide: BorderSide(
                                                     color: Color(0x00000000),
-                                                    width: 2.0,
+                                                    width: 2,
                                                   ),
                                                   borderRadius:
-                                                      BorderRadius.circular(
-                                                          10.0),
+                                                      BorderRadius.circular(10),
                                                 ),
                                                 errorBorder: OutlineInputBorder(
                                                   borderSide: BorderSide(
                                                     color: Color(0x00000000),
-                                                    width: 2.0,
+                                                    width: 2,
                                                   ),
                                                   borderRadius:
-                                                      BorderRadius.circular(
-                                                          10.0),
+                                                      BorderRadius.circular(10),
                                                 ),
                                                 focusedErrorBorder:
                                                     OutlineInputBorder(
                                                   borderSide: BorderSide(
                                                     color: Color(0x00000000),
-                                                    width: 2.0,
+                                                    width: 2,
                                                   ),
                                                   borderRadius:
-                                                      BorderRadius.circular(
-                                                          10.0),
+                                                      BorderRadius.circular(10),
                                                 ),
                                               ),
                                               style:
@@ -389,7 +387,7 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  16.0, 10.0, 16.0, 0.0),
+                                                  16, 10, 16, 0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
                                             mainAxisAlignment:
@@ -405,15 +403,14 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .secondaryText,
-                                                          fontSize: 14.0,
+                                                          fontSize: 14,
                                                           fontWeight:
                                                               FontWeight.normal,
                                                         ),
                                               ),
                                               Padding(
                                                 padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        5.0, 0.0, 0.0, 0.0),
+                                                    .fromSTEB(5, 0, 0, 0),
                                                 child: Text(
                                                   _model.simpleSearchResults
                                                       .length
@@ -427,7 +424,7 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                                             FlutterFlowTheme.of(
                                                                     context)
                                                                 .primary,
-                                                        fontSize: 14.0,
+                                                        fontSize: 14,
                                                         fontWeight:
                                                             FontWeight.normal,
                                                       ),
@@ -463,11 +460,8 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                                       return Padding(
                                                         padding:
                                                             EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    16.0,
-                                                                    8.0,
-                                                                    16.0,
-                                                                    0.0),
+                                                                .fromSTEB(16, 8,
+                                                                    16, 0),
                                                         child:
                                                             SingleChildScrollView(
                                                           child: Column(
@@ -479,10 +473,10 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                                                 padding:
                                                                     EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            8.0,
-                                                                            8.0,
-                                                                            8.0,
-                                                                            8.0),
+                                                                            8,
+                                                                            8,
+                                                                            8,
+                                                                            8),
                                                                 child: InkWell(
                                                                   splashColor:
                                                                       Colors
@@ -568,30 +562,30 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                                                         children: [
                                                                           Container(
                                                                             width:
-                                                                                60.0,
+                                                                                60,
                                                                             height:
-                                                                                60.0,
+                                                                                60,
                                                                             decoration:
                                                                                 BoxDecoration(
                                                                               color: Color(0x4F507583),
                                                                               shape: BoxShape.circle,
                                                                               border: Border.all(
                                                                                 color: Color(0xFF507583),
-                                                                                width: 2.0,
+                                                                                width: 2,
                                                                               ),
                                                                             ),
                                                                             child:
                                                                                 Padding(
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(2.0, 2.0, 2.0, 2.0),
+                                                                              padding: EdgeInsetsDirectional.fromSTEB(2, 2, 2, 2),
                                                                               child: ClipRRect(
-                                                                                borderRadius: BorderRadius.circular(40.0),
+                                                                                borderRadius: BorderRadius.circular(40),
                                                                                 child: Image.network(
                                                                                   valueOrDefault<String>(
                                                                                     usersNoSearchItem.photoUrl != null && usersNoSearchItem.photoUrl != '' ? usersNoSearchItem.photoUrl : 'https://isobarscience-1bfd8.kxcdn.com/wp-content/uploads/2020/09/default-profile-picture1.jpg',
                                                                                     'https://isobarscience-1bfd8.kxcdn.com/wp-content/uploads/2020/09/default-profile-picture1.jpg',
                                                                                   ),
-                                                                                  width: 44.0,
-                                                                                  height: 44.0,
+                                                                                  width: 44,
+                                                                                  height: 44,
                                                                                   fit: BoxFit.cover,
                                                                                 ),
                                                                               ),
@@ -599,10 +593,10 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                                                           ),
                                                                           Padding(
                                                                             padding: EdgeInsetsDirectional.fromSTEB(
-                                                                                12.0,
-                                                                                0.0,
-                                                                                0.0,
-                                                                                0.0),
+                                                                                12,
+                                                                                0,
+                                                                                0,
+                                                                                0),
                                                                             child:
                                                                                 Column(
                                                                               mainAxisSize: MainAxisSize.max,
@@ -621,7 +615,7 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                                                                   style: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                         fontFamily: 'Inter',
                                                                                         color: FlutterFlowTheme.of(context).secondaryText,
-                                                                                        fontSize: 14.0,
+                                                                                        fontSize: 14,
                                                                                         fontWeight: FontWeight.normal,
                                                                                       ),
                                                                                 ),
@@ -630,7 +624,7 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                                                                   style: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                         fontFamily: 'Inter',
                                                                                         color: FlutterFlowTheme.of(context).secondaryText,
-                                                                                        fontSize: 14.0,
+                                                                                        fontSize: 14,
                                                                                         fontWeight: FontWeight.normal,
                                                                                       ),
                                                                                 ),
@@ -639,7 +633,7 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                                                                   style: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                         fontFamily: 'Inter',
                                                                                         color: FlutterFlowTheme.of(context).secondaryText,
-                                                                                        fontSize: 14.0,
+                                                                                        fontSize: 14,
                                                                                         fontWeight: FontWeight.normal,
                                                                                       ),
                                                                                 ),
@@ -650,9 +644,9 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                                                       ),
                                                                       Container(
                                                                         width:
-                                                                            36.0,
+                                                                            36,
                                                                         height:
-                                                                            36.0,
+                                                                            36,
                                                                         decoration:
                                                                             BoxDecoration(
                                                                           color:
@@ -663,17 +657,17 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                                                         child:
                                                                             Padding(
                                                                           padding: EdgeInsetsDirectional.fromSTEB(
-                                                                              4.0,
-                                                                              4.0,
-                                                                              4.0,
-                                                                              4.0),
+                                                                              4,
+                                                                              4,
+                                                                              4,
+                                                                              4),
                                                                           child:
                                                                               Icon(
                                                                             Icons.keyboard_arrow_right_rounded,
                                                                             color:
                                                                                 FlutterFlowTheme.of(context).primaryText,
                                                                             size:
-                                                                                24.0,
+                                                                                24,
                                                                           ),
                                                                         ),
                                                                       ),
@@ -682,7 +676,7 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                                                 ),
                                                               ),
                                                               Divider(
-                                                                thickness: 1.0,
+                                                                thickness: 1,
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .secondaryBackground,
@@ -717,11 +711,8 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                                       return Padding(
                                                         padding:
                                                             EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    16.0,
-                                                                    8.0,
-                                                                    16.0,
-                                                                    0.0),
+                                                                .fromSTEB(16, 8,
+                                                                    16, 0),
                                                         child:
                                                             SingleChildScrollView(
                                                           child: Column(
@@ -733,10 +724,10 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                                                 padding:
                                                                     EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            8.0,
-                                                                            8.0,
-                                                                            8.0,
-                                                                            8.0),
+                                                                            8,
+                                                                            8,
+                                                                            8,
+                                                                            8),
                                                                 child: InkWell(
                                                                   splashColor:
                                                                       Colors
@@ -779,30 +770,30 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                                                         children: [
                                                                           Container(
                                                                             width:
-                                                                                60.0,
+                                                                                60,
                                                                             height:
-                                                                                60.0,
+                                                                                60,
                                                                             decoration:
                                                                                 BoxDecoration(
                                                                               color: Color(0x4F507583),
                                                                               shape: BoxShape.circle,
                                                                               border: Border.all(
                                                                                 color: Color(0xFF507583),
-                                                                                width: 2.0,
+                                                                                width: 2,
                                                                               ),
                                                                             ),
                                                                             child:
                                                                                 Padding(
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(2.0, 2.0, 2.0, 2.0),
+                                                                              padding: EdgeInsetsDirectional.fromSTEB(2, 2, 2, 2),
                                                                               child: ClipRRect(
-                                                                                borderRadius: BorderRadius.circular(40.0),
+                                                                                borderRadius: BorderRadius.circular(40),
                                                                                 child: Image.network(
                                                                                   valueOrDefault<String>(
                                                                                     usersNoSearchItem.photoUrl != null && usersNoSearchItem.photoUrl != '' ? usersNoSearchItem.photoUrl : 'https://isobarscience-1bfd8.kxcdn.com/wp-content/uploads/2020/09/default-profile-picture1.jpg',
                                                                                     'https://isobarscience-1bfd8.kxcdn.com/wp-content/uploads/2020/09/default-profile-picture1.jpg',
                                                                                   ),
-                                                                                  width: 44.0,
-                                                                                  height: 44.0,
+                                                                                  width: 44,
+                                                                                  height: 44,
                                                                                   fit: BoxFit.cover,
                                                                                 ),
                                                                               ),
@@ -810,10 +801,10 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                                                           ),
                                                                           Padding(
                                                                             padding: EdgeInsetsDirectional.fromSTEB(
-                                                                                12.0,
-                                                                                0.0,
-                                                                                0.0,
-                                                                                0.0),
+                                                                                12,
+                                                                                0,
+                                                                                0,
+                                                                                0),
                                                                             child:
                                                                                 Column(
                                                                               mainAxisSize: MainAxisSize.max,
@@ -824,7 +815,7 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                                                                   style: FlutterFlowTheme.of(context).titleMedium.override(
                                                                                         fontFamily: 'Inter',
                                                                                         color: FlutterFlowTheme.of(context).primaryText,
-                                                                                        fontSize: 18.0,
+                                                                                        fontSize: 18,
                                                                                         fontWeight: FontWeight.w500,
                                                                                       ),
                                                                                 ),
@@ -833,7 +824,7 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                                                                   style: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                         fontFamily: 'Inter',
                                                                                         color: FlutterFlowTheme.of(context).secondaryText,
-                                                                                        fontSize: 14.0,
+                                                                                        fontSize: 14,
                                                                                         fontWeight: FontWeight.normal,
                                                                                       ),
                                                                                 ),
@@ -842,7 +833,7 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                                                                   style: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                         fontFamily: 'Inter',
                                                                                         color: FlutterFlowTheme.of(context).secondaryText,
-                                                                                        fontSize: 14.0,
+                                                                                        fontSize: 14,
                                                                                         fontWeight: FontWeight.normal,
                                                                                       ),
                                                                                 ),
@@ -851,7 +842,7 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                                                                   style: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                         fontFamily: 'Inter',
                                                                                         color: FlutterFlowTheme.of(context).secondaryText,
-                                                                                        fontSize: 14.0,
+                                                                                        fontSize: 14,
                                                                                         fontWeight: FontWeight.normal,
                                                                                       ),
                                                                                 ),
@@ -862,9 +853,9 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                                                       ),
                                                                       Container(
                                                                         width:
-                                                                            36.0,
+                                                                            36,
                                                                         height:
-                                                                            36.0,
+                                                                            36,
                                                                         decoration:
                                                                             BoxDecoration(
                                                                           color:
@@ -875,17 +866,17 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                                                         child:
                                                                             Padding(
                                                                           padding: EdgeInsetsDirectional.fromSTEB(
-                                                                              4.0,
-                                                                              4.0,
-                                                                              4.0,
-                                                                              4.0),
+                                                                              4,
+                                                                              4,
+                                                                              4,
+                                                                              4),
                                                                           child:
                                                                               Icon(
                                                                             Icons.keyboard_arrow_right_rounded,
                                                                             color:
                                                                                 FlutterFlowTheme.of(context).primaryText,
                                                                             size:
-                                                                                24.0,
+                                                                                24,
                                                                           ),
                                                                         ),
                                                                       ),
@@ -894,7 +885,7 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                                                 ),
                                                               ),
                                                               Divider(
-                                                                thickness: 1.0,
+                                                                thickness: 1,
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .secondaryBackground,
@@ -929,17 +920,16 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 8.0, 0.0, 0.0),
+                                                  0, 8, 0, 0),
                                           child: Column(
                                             mainAxisSize: MainAxisSize.max,
                                             children: [
                                               Align(
-                                                alignment: AlignmentDirectional(
-                                                    -1.0, 0.0),
+                                                alignment:
+                                                    AlignmentDirectional(-1, 0),
                                                 child: Padding(
                                                   padding: EdgeInsetsDirectional
-                                                      .fromSTEB(24.0, 10.0, 0.0,
-                                                          16.0),
+                                                      .fromSTEB(24, 10, 0, 16),
                                                   child: Text(
                                                     'Inbox',
                                                     style: FlutterFlowTheme.of(
@@ -950,116 +940,121 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .primary,
-                                                          fontSize: 36.0,
+                                                          fontSize: 36,
                                                         ),
                                                   ),
                                                 ),
                                               ),
-                                              Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        0.0, 0.0, 0.0, 16.0),
-                                                child: Container(
-                                                  height: 50.0,
-                                                  decoration: BoxDecoration(),
-                                                  child: Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(24.0, 0.0,
-                                                                24.0, 0.0),
-                                                    child: TextFormField(
-                                                      controller: _model
-                                                          .textController2,
-                                                      focusNode: _model
-                                                          .textFieldFocusNode,
-                                                      autofocus: true,
-                                                      obscureText: false,
-                                                      decoration:
-                                                          InputDecoration(
-                                                        labelText: 'Search...',
-                                                        labelStyle:
+                                              if (true == false)
+                                                Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(0, 0, 0, 16),
+                                                  child: Container(
+                                                    height: 50,
+                                                    decoration: BoxDecoration(),
+                                                    child: Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  24, 0, 24, 0),
+                                                      child: TextFormField(
+                                                        controller: _model
+                                                            .textController2,
+                                                        focusNode: _model
+                                                            .textFieldFocusNode,
+                                                        autofocus: true,
+                                                        obscureText: false,
+                                                        decoration:
+                                                            InputDecoration(
+                                                          labelText:
+                                                              'Search...',
+                                                          labelStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .labelMedium,
+                                                          hintStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .labelMedium,
+                                                          enabledBorder:
+                                                              UnderlineInputBorder(
+                                                            borderSide:
+                                                                BorderSide(
+                                                              color: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .secondary,
+                                                              width: 2,
+                                                            ),
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        16),
+                                                          ),
+                                                          focusedBorder:
+                                                              UnderlineInputBorder(
+                                                            borderSide:
+                                                                BorderSide(
+                                                              color: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .primary,
+                                                              width: 2,
+                                                            ),
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        16),
+                                                          ),
+                                                          errorBorder:
+                                                              UnderlineInputBorder(
+                                                            borderSide:
+                                                                BorderSide(
+                                                              color: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .error,
+                                                              width: 2,
+                                                            ),
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        16),
+                                                          ),
+                                                          focusedErrorBorder:
+                                                              UnderlineInputBorder(
+                                                            borderSide:
+                                                                BorderSide(
+                                                              color: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .error,
+                                                              width: 2,
+                                                            ),
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        16),
+                                                          ),
+                                                          suffixIcon: Icon(
+                                                            Icons
+                                                                .search_rounded,
+                                                          ),
+                                                        ),
+                                                        style:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .labelMedium,
-                                                        hintStyle:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .labelMedium,
-                                                        enabledBorder:
-                                                            UnderlineInputBorder(
-                                                          borderSide:
-                                                              BorderSide(
-                                                            color: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .secondary,
-                                                            width: 2.0,
-                                                          ),
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(
-                                                                      16.0),
-                                                        ),
-                                                        focusedBorder:
-                                                            UnderlineInputBorder(
-                                                          borderSide:
-                                                              BorderSide(
-                                                            color: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .primary,
-                                                            width: 2.0,
-                                                          ),
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(
-                                                                      16.0),
-                                                        ),
-                                                        errorBorder:
-                                                            UnderlineInputBorder(
-                                                          borderSide:
-                                                              BorderSide(
-                                                            color: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .error,
-                                                            width: 2.0,
-                                                          ),
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(
-                                                                      16.0),
-                                                        ),
-                                                        focusedErrorBorder:
-                                                            UnderlineInputBorder(
-                                                          borderSide:
-                                                              BorderSide(
-                                                            color: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .error,
-                                                            width: 2.0,
-                                                          ),
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(
-                                                                      16.0),
-                                                        ),
-                                                        suffixIcon: Icon(
-                                                          Icons.search_rounded,
-                                                        ),
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Inter',
+                                                                  color: Color(
+                                                                      0x00F1F4F8),
+                                                                ),
+                                                        validator: _model
+                                                            .textController2Validator
+                                                            .asValidator(
+                                                                context),
                                                       ),
-                                                      style: FlutterFlowTheme
-                                                              .of(context)
-                                                          .bodyMedium
-                                                          .override(
-                                                            fontFamily: 'Inter',
-                                                            color: Color(
-                                                                0x00F1F4F8),
-                                                          ),
-                                                      validator: _model
-                                                          .textController2Validator
-                                                          .asValidator(context),
                                                     ),
                                                   ),
                                                 ),
-                                              ),
                                               StreamBuilder<List<ChatsRecord>>(
                                                 stream: queryChatsRecord(
                                                   queryBuilder: (chatsRecord) =>
@@ -1078,8 +1073,8 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                                   if (!snapshot.hasData) {
                                                     return Center(
                                                       child: SizedBox(
-                                                        width: 50.0,
-                                                        height: 50.0,
+                                                        width: 50,
+                                                        height: 50,
                                                         child:
                                                             CircularProgressIndicator(
                                                           valueColor:
@@ -1117,10 +1112,10 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                                             padding:
                                                                 EdgeInsetsDirectional
                                                                     .fromSTEB(
-                                                                        0.0,
-                                                                        1.0,
-                                                                        0.0,
-                                                                        0.0),
+                                                                        0,
+                                                                        1,
+                                                                        0,
+                                                                        0),
                                                             child: InkWell(
                                                               splashColor: Colors
                                                                   .transparent,
@@ -1154,7 +1149,7 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                                               child: Material(
                                                                 color: Colors
                                                                     .transparent,
-                                                                elevation: 0.0,
+                                                                elevation: 0,
                                                                 child:
                                                                     Container(
                                                                   width: double
@@ -1169,10 +1164,10 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                                                       Padding(
                                                                     padding: EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            12.0,
-                                                                            12.0,
-                                                                            12.0,
-                                                                            12.0),
+                                                                            12,
+                                                                            12,
+                                                                            12,
+                                                                            12),
                                                                     child: StreamBuilder<
                                                                         UsersRecord>(
                                                                       stream: UsersRecord.getDocument(listViewChatsRecord
@@ -1191,8 +1186,8 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                                                           return Center(
                                                                             child:
                                                                                 SizedBox(
-                                                                              width: 50.0,
-                                                                              height: 50.0,
+                                                                              width: 50,
+                                                                              height: 50,
                                                                               child: CircularProgressIndicator(
                                                                                 valueColor: AlwaysStoppedAnimation<Color>(
                                                                                   FlutterFlowTheme.of(context).primary,
@@ -1210,27 +1205,27 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                                                               CrossAxisAlignment.start,
                                                                           children: [
                                                                             Container(
-                                                                              width: 44.0,
-                                                                              height: 44.0,
+                                                                              width: 44,
+                                                                              height: 44,
                                                                               decoration: BoxDecoration(
                                                                                 color: Color(0x4F507583),
                                                                                 shape: BoxShape.circle,
                                                                                 border: Border.all(
                                                                                   color: Color(0xFF507583),
-                                                                                  width: 2.0,
+                                                                                  width: 2,
                                                                                 ),
                                                                               ),
                                                                               child: Padding(
-                                                                                padding: EdgeInsetsDirectional.fromSTEB(2.0, 2.0, 2.0, 2.0),
+                                                                                padding: EdgeInsetsDirectional.fromSTEB(2, 2, 2, 2),
                                                                                 child: ClipRRect(
-                                                                                  borderRadius: BorderRadius.circular(40.0),
+                                                                                  borderRadius: BorderRadius.circular(40),
                                                                                   child: Image.network(
                                                                                     valueOrDefault<String>(
                                                                                       rowUsersRecord.photoUrl,
                                                                                       'https://isobarscience-1bfd8.kxcdn.com/wp-content/uploads/2020/09/default-profile-picture1.jpg',
                                                                                     ),
-                                                                                    width: 44.0,
-                                                                                    height: 44.0,
+                                                                                    width: 44,
+                                                                                    height: 44,
                                                                                     fit: BoxFit.cover,
                                                                                   ),
                                                                                 ),
@@ -1238,7 +1233,7 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                                                             ),
                                                                             Expanded(
                                                                               child: Padding(
-                                                                                padding: EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 0.0, 0.0),
+                                                                                padding: EdgeInsetsDirectional.fromSTEB(8, 0, 0, 0),
                                                                                 child: Column(
                                                                                   mainAxisSize: MainAxisSize.max,
                                                                                   mainAxisAlignment: MainAxisAlignment.center,
@@ -1250,19 +1245,19 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                                                                       style: FlutterFlowTheme.of(context).bodyLarge.override(
                                                                                             fontFamily: 'Inter',
                                                                                             color: FlutterFlowTheme.of(context).primaryText,
-                                                                                            fontSize: 16.0,
+                                                                                            fontSize: 16,
                                                                                             fontWeight: FontWeight.normal,
                                                                                           ),
                                                                                     ),
                                                                                     Padding(
-                                                                                      padding: EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 8.0, 0.0),
+                                                                                      padding: EdgeInsetsDirectional.fromSTEB(0, 4, 8, 0),
                                                                                       child: Text(
                                                                                         listViewChatsRecord.lastMessage,
                                                                                         textAlign: TextAlign.start,
                                                                                         style: FlutterFlowTheme.of(context).labelMedium.override(
                                                                                               fontFamily: 'Inter',
                                                                                               color: FlutterFlowTheme.of(context).secondary,
-                                                                                              fontSize: 14.0,
+                                                                                              fontSize: 14,
                                                                                               fontWeight: FontWeight.w500,
                                                                                             ),
                                                                                       ),
@@ -1272,14 +1267,14 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                                                                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                                                                       children: [
                                                                                         Padding(
-                                                                                          padding: EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 0.0),
+                                                                                          padding: EdgeInsetsDirectional.fromSTEB(0, 4, 0, 0),
                                                                                           child: Text(
                                                                                             dateTimeFormat('relative', listViewChatsRecord.lastMessageTime!),
                                                                                             textAlign: TextAlign.start,
                                                                                             style: FlutterFlowTheme.of(context).labelSmall.override(
                                                                                                   fontFamily: 'Inter',
                                                                                                   color: Color(0xFF57636C),
-                                                                                                  fontSize: 12.0,
+                                                                                                  fontSize: 12,
                                                                                                   fontWeight: FontWeight.w500,
                                                                                                 ),
                                                                                           ),
@@ -1287,7 +1282,7 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                                                                         Icon(
                                                                                           Icons.chevron_right_rounded,
                                                                                           color: Color(0xFF57636C),
-                                                                                          size: 24.0,
+                                                                                          size: 24,
                                                                                         ),
                                                                                       ],
                                                                                     ),
@@ -1305,8 +1300,8 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                                             ),
                                                           ),
                                                           Divider(
-                                                            height: 1.0,
-                                                            thickness: 1.0,
+                                                            height: 1,
+                                                            thickness: 1,
                                                             color: FlutterFlowTheme
                                                                     .of(context)
                                                                 .secondaryBackground,
@@ -1321,15 +1316,14 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                           ),
                                         ),
                                         Opacity(
-                                          opacity: 0.0,
+                                          opacity: 0,
                                           child: Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 0.0, 0.0, 20.0),
+                                                    0, 0, 0, 20),
                                             child: Container(
                                               width: MediaQuery.sizeOf(context)
-                                                      .width *
-                                                  1.0,
+                                                  .width,
                                               height: MediaQuery.sizeOf(context)
                                                       .height *
                                                   0.1,
@@ -1338,14 +1332,13 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                                     FlutterFlowTheme.of(context)
                                                         .secondaryBackground,
                                                 borderRadius:
-                                                    BorderRadius.circular(20.0),
+                                                    BorderRadius.circular(20),
                                               ),
                                               child: Opacity(
                                                 opacity: 0.5,
                                                 child: Padding(
                                                   padding: EdgeInsetsDirectional
-                                                      .fromSTEB(25.0, 20.0,
-                                                          25.0, 20.0),
+                                                      .fromSTEB(25, 20, 25, 20),
                                                   child: Container(
                                                     height: MediaQuery.sizeOf(
                                                                 context)
@@ -1359,17 +1352,13 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                                       borderRadius:
                                                           BorderRadius.only(
                                                         bottomLeft:
-                                                            Radius.circular(
-                                                                75.0),
+                                                            Radius.circular(75),
                                                         bottomRight:
-                                                            Radius.circular(
-                                                                75.0),
+                                                            Radius.circular(75),
                                                         topLeft:
-                                                            Radius.circular(
-                                                                75.0),
+                                                            Radius.circular(75),
                                                         topRight:
-                                                            Radius.circular(
-                                                                75.0),
+                                                            Radius.circular(75),
                                                       ),
                                                       shape: BoxShape.rectangle,
                                                     ),
@@ -1377,10 +1366,7 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                                       padding:
                                                           EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  16.0,
-                                                                  0.0,
-                                                                  16.0,
-                                                                  0.0),
+                                                                  16, 0, 16, 0),
                                                       child: Row(
                                                         mainAxisSize:
                                                             MainAxisSize.max,
@@ -1399,8 +1385,7 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
                                                                       .primaryText,
-                                                                  fontSize:
-                                                                      20.0,
+                                                                  fontSize: 20,
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .w600,
@@ -1417,8 +1402,7 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
                                                                       .primaryText,
-                                                                  fontSize:
-                                                                      20.0,
+                                                                  fontSize: 20,
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .w600,
@@ -1445,10 +1429,10 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                         .primaryBackground,
                                   ),
                                   child: Align(
-                                    alignment: AlignmentDirectional(0.0, -1.0),
+                                    alignment: AlignmentDirectional(0, -1),
                                     child: Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          8.0, 0.0, 8.0, 0.0),
+                                          8, 0, 8, 0),
                                       child: SingleChildScrollView(
                                         child: Column(
                                           mainAxisSize: MainAxisSize.max,
@@ -1459,12 +1443,11 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                           children: [
                                             Padding(
                                               padding: EdgeInsetsDirectional
-                                                  .fromSTEB(0.0, 0.0, 0.0, 8.0),
+                                                  .fromSTEB(0, 0, 0, 8),
                                               child: Container(
                                                 width:
                                                     MediaQuery.sizeOf(context)
-                                                            .width *
-                                                        1.0,
+                                                        .width,
                                                 height:
                                                     MediaQuery.sizeOf(context)
                                                             .height *
@@ -1476,8 +1459,7 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                                 ),
                                                 child: Padding(
                                                   padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          12.0, 0.0, 12.0, 0.0),
+                                                      .fromSTEB(12, 0, 12, 0),
                                                   child: Row(
                                                     mainAxisSize:
                                                         MainAxisSize.max,
@@ -1491,18 +1473,15 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                                       Align(
                                                         alignment:
                                                             AlignmentDirectional(
-                                                                0.0, 0.0),
+                                                                0, 0),
                                                         child: Padding(
                                                           padding:
                                                               EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      0.0,
-                                                                      0.0,
-                                                                      6.0,
-                                                                      0.0),
+                                                                  .fromSTEB(0,
+                                                                      0, 6, 0),
                                                           child: Container(
-                                                            width: 125.0,
-                                                            height: 125.0,
+                                                            width: 125,
+                                                            height: 125,
                                                             decoration:
                                                                 BoxDecoration(
                                                               color: FlutterFlowTheme
@@ -1519,7 +1498,7 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                                                           ClipRRect(
                                                                     borderRadius:
                                                                         BorderRadius.circular(
-                                                                            50.0),
+                                                                            50),
                                                                     child: Image
                                                                         .network(
                                                                       valueOrDefault<
@@ -1541,19 +1520,18 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                                                 Align(
                                                                   alignment:
                                                                       AlignmentDirectional(
-                                                                          1.0,
-                                                                          1.0),
+                                                                          1, 1),
                                                                   child:
                                                                       FlutterFlowIconButton(
                                                                     borderColor:
                                                                         FlutterFlowTheme.of(context)
                                                                             .primary,
                                                                     borderRadius:
-                                                                        20.0,
+                                                                        20,
                                                                     borderWidth:
-                                                                        1.0,
+                                                                        1,
                                                                     buttonSize:
-                                                                        40.0,
+                                                                        40,
                                                                     fillColor:
                                                                         Color(
                                                                             0xFF0077B5),
@@ -1564,8 +1542,7 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                                                       color: FlutterFlowTheme.of(
                                                                               context)
                                                                           .primaryText,
-                                                                      size:
-                                                                          24.0,
+                                                                      size: 24,
                                                                     ),
                                                                     onPressed:
                                                                         () async {
@@ -1590,7 +1567,7 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                                               MediaQuery.sizeOf(
                                                                           context)
                                                                       .height *
-                                                                  1.0,
+                                                                  1,
                                                           decoration:
                                                               BoxDecoration(
                                                             color: FlutterFlowTheme
@@ -1601,10 +1578,10 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                                             padding:
                                                                 EdgeInsetsDirectional
                                                                     .fromSTEB(
-                                                                        16.0,
-                                                                        0.0,
-                                                                        0.0,
-                                                                        0.0),
+                                                                        16,
+                                                                        0,
+                                                                        0,
+                                                                        0),
                                                             child: Column(
                                                               mainAxisSize:
                                                                   MainAxisSize
@@ -1619,8 +1596,8 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                                                 Align(
                                                                   alignment:
                                                                       AlignmentDirectional(
-                                                                          -1.0,
-                                                                          -1.0),
+                                                                          -1,
+                                                                          -1),
                                                                   child:
                                                                       AuthUserStreamWidget(
                                                                     builder:
@@ -1637,7 +1614,7 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                                                             fontFamily:
                                                                                 'Poppins',
                                                                             fontSize:
-                                                                                20.0,
+                                                                                20,
                                                                             fontWeight:
                                                                                 FontWeight.bold,
                                                                           ),
@@ -1653,11 +1630,12 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                                                           .start,
                                                                   children: [
                                                                     Padding(
-                                                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                                                          0.0,
-                                                                          0.0,
-                                                                          0.0,
-                                                                          4.0),
+                                                                      padding: EdgeInsetsDirectional
+                                                                          .fromSTEB(
+                                                                              0,
+                                                                              0,
+                                                                              0,
+                                                                              4),
                                                                       child:
                                                                           AuthUserStreamWidget(
                                                                         builder:
@@ -1668,17 +1646,18 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                                                               .bodyMedium
                                                                               .override(
                                                                                 fontFamily: 'Inter',
-                                                                                letterSpacing: 0.0,
+                                                                                letterSpacing: 0,
                                                                               ),
                                                                         ),
                                                                       ),
                                                                     ),
                                                                     Padding(
-                                                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                                                          0.0,
-                                                                          0.0,
-                                                                          0.0,
-                                                                          4.0),
+                                                                      padding: EdgeInsetsDirectional
+                                                                          .fromSTEB(
+                                                                              0,
+                                                                              0,
+                                                                              0,
+                                                                              4),
                                                                       child:
                                                                           AuthUserStreamWidget(
                                                                         builder:
@@ -1691,11 +1670,12 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                                                       ),
                                                                     ),
                                                                     Padding(
-                                                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                                                          0.0,
-                                                                          0.0,
-                                                                          0.0,
-                                                                          4.0),
+                                                                      padding: EdgeInsetsDirectional
+                                                                          .fromSTEB(
+                                                                              0,
+                                                                              0,
+                                                                              0,
+                                                                              4),
                                                                       child:
                                                                           AuthUserStreamWidget(
                                                                         builder:
@@ -1722,12 +1702,11 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                               ),
                                             ),
                                             Align(
-                                              alignment: AlignmentDirectional(
-                                                  -1.0, 0.0),
+                                              alignment:
+                                                  AlignmentDirectional(-1, 0),
                                               child: Padding(
                                                 padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        12.0, 0.0, 0.0, 0.0),
+                                                    .fromSTEB(12, 0, 0, 0),
                                                 child: AuthUserStreamWidget(
                                                   builder: (context) => Text(
                                                     valueOrDefault(
@@ -1743,7 +1722,7 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                             ),
                                             Padding(
                                               padding: EdgeInsetsDirectional
-                                                  .fromSTEB(0.0, 8.0, 0.0, 8.0),
+                                                  .fromSTEB(0, 8, 0, 8),
                                               child: wrapWithModel(
                                                 model: _model
                                                     .selfProfileElementModel,
@@ -1758,11 +1737,11 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                                   Clip.antiAliasWithSaveLayer,
                                               color:
                                                   FlutterFlowTheme.of(context)
-                                                      .secondaryBackground,
-                                              elevation: 4.0,
+                                                      .primaryBackground,
+                                              elevation: 4,
                                               shape: RoundedRectangleBorder(
                                                 borderRadius:
-                                                    BorderRadius.circular(8.0),
+                                                    BorderRadius.circular(8),
                                               ),
                                               child: Column(
                                                 mainAxisSize: MainAxisSize.max,
@@ -1781,16 +1760,13 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                                           FlutterFlowTheme.of(
                                                                   context)
                                                               .secondaryText,
-                                                      size: 20.0,
+                                                      size: 20,
                                                     ),
-                                                    tileColor: FlutterFlowTheme
-                                                            .of(context)
-                                                        .secondaryBackground,
                                                     dense: false,
                                                     contentPadding:
                                                         EdgeInsetsDirectional
-                                                            .fromSTEB(16.0, 0.0,
-                                                                16.0, 0.0),
+                                                            .fromSTEB(
+                                                                16, 0, 16, 0),
                                                   ),
                                                   AuthUserStreamWidget(
                                                     builder: (context) =>
@@ -1825,8 +1801,8 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                                                   Align(
                                                                     alignment:
                                                                         AlignmentDirectional(
-                                                                            0.0,
-                                                                            0.0),
+                                                                            0,
+                                                                            0),
                                                                     child:
                                                                         Stack(
                                                                       children: [
@@ -1836,7 +1812,7 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                                                             queryItem.title,
                                                                             style: FlutterFlowTheme.of(context).titleLarge.override(
                                                                                   fontFamily: 'Inter',
-                                                                                  fontSize: 20.0,
+                                                                                  fontSize: 20,
                                                                                 ),
                                                                           ),
                                                                           subtitle:
@@ -1844,40 +1820,47 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                                                             queryItem.subtitle,
                                                                             style: FlutterFlowTheme.of(context).labelMedium.override(
                                                                                   fontFamily: 'Inter',
-                                                                                  fontSize: 16.0,
+                                                                                  fontSize: 16,
                                                                                 ),
                                                                           ),
-                                                                          tileColor:
-                                                                              FlutterFlowTheme.of(context).secondaryBackground,
                                                                           dense:
                                                                               false,
                                                                           contentPadding: EdgeInsetsDirectional.fromSTEB(
-                                                                              76.0,
-                                                                              0.0,
-                                                                              16.0,
-                                                                              0.0),
+                                                                              76,
+                                                                              0,
+                                                                              16,
+                                                                              0),
                                                                         ),
-                                                                        Padding(
-                                                                          padding: EdgeInsetsDirectional.fromSTEB(
-                                                                              16.0,
-                                                                              8.0,
-                                                                              8.0,
-                                                                              0.0),
-                                                                          child:
-                                                                              ClipRRect(
-                                                                            borderRadius:
-                                                                                BorderRadius.circular(8.0),
-                                                                            child:
-                                                                                Image.network(
-                                                                              valueOrDefault<String>(
-                                                                                queryItem.photoUrl,
-                                                                                'https://www.ledr.com/colours/white.jpg',
-                                                                              ),
-                                                                              width: 48.0,
-                                                                              height: 48.0,
-                                                                              fit: BoxFit.cover,
-                                                                            ),
-                                                                          ),
+                                                                        Builder(
+                                                                          builder:
+                                                                              (context) {
+                                                                            if (queryItem.photoUrl != null &&
+                                                                                queryItem.photoUrl != '') {
+                                                                              return Padding(
+                                                                                padding: EdgeInsetsDirectional.fromSTEB(16, 8, 8, 0),
+                                                                                child: ClipRRect(
+                                                                                  borderRadius: BorderRadius.circular(8),
+                                                                                  child: Image.network(
+                                                                                    queryItem.photoUrl,
+                                                                                    width: 48,
+                                                                                    height: 48,
+                                                                                    fit: BoxFit.cover,
+                                                                                  ),
+                                                                                ),
+                                                                              );
+                                                                            } else {
+                                                                              return Opacity(
+                                                                                opacity: 0,
+                                                                                child: Container(
+                                                                                  width: 0,
+                                                                                  height: 0,
+                                                                                  decoration: BoxDecoration(
+                                                                                    color: FlutterFlowTheme.of(context).secondaryBackground,
+                                                                                  ),
+                                                                                ),
+                                                                              );
+                                                                            }
+                                                                          },
                                                                         ),
                                                                       ],
                                                                     ),
@@ -1885,31 +1868,35 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                                                   Align(
                                                                     alignment:
                                                                         AlignmentDirectional(
-                                                                            -1.0,
-                                                                            0.0),
+                                                                            -1,
+                                                                            0),
                                                                     child:
-                                                                        Container(
-                                                                      width: MediaQuery.sizeOf(context)
-                                                                              .width *
-                                                                          1.0,
-                                                                      decoration:
-                                                                          BoxDecoration(
-                                                                        color: FlutterFlowTheme.of(context)
-                                                                            .secondaryBackground,
-                                                                      ),
+                                                                        Padding(
+                                                                      padding: EdgeInsetsDirectional
+                                                                          .fromSTEB(
+                                                                              0,
+                                                                              0,
+                                                                              16,
+                                                                              0),
                                                                       child:
-                                                                          Padding(
-                                                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                                                            76.0,
-                                                                            0.0,
-                                                                            0.0,
-                                                                            8.0),
+                                                                          Container(
+                                                                        width: MediaQuery.sizeOf(context)
+                                                                            .width,
+                                                                        decoration:
+                                                                            BoxDecoration(),
                                                                         child:
-                                                                            Text(
-                                                                          queryItem
-                                                                              .description,
-                                                                          style:
-                                                                              FlutterFlowTheme.of(context).bodyMedium,
+                                                                            Padding(
+                                                                          padding: EdgeInsetsDirectional.fromSTEB(
+                                                                              76,
+                                                                              0,
+                                                                              0,
+                                                                              8),
+                                                                          child:
+                                                                              Text(
+                                                                            queryItem.description,
+                                                                            style:
+                                                                                FlutterFlowTheme.of(context).bodyMedium,
+                                                                          ),
                                                                         ),
                                                                       ),
                                                                     ),
@@ -1920,11 +1907,12 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                                                       ? false
                                                                       : true)
                                                                     Padding(
-                                                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                                                          0.0,
-                                                                          8.0,
-                                                                          0.0,
-                                                                          0.0),
+                                                                      padding: EdgeInsetsDirectional
+                                                                          .fromSTEB(
+                                                                              0,
+                                                                              8,
+                                                                              0,
+                                                                              0),
                                                                       child:
                                                                           CarouselOfImagesWidget(
                                                                         key: Key(
@@ -1950,11 +1938,11 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                                   Clip.antiAliasWithSaveLayer,
                                               color:
                                                   FlutterFlowTheme.of(context)
-                                                      .secondaryBackground,
-                                              elevation: 4.0,
+                                                      .primaryBackground,
+                                              elevation: 4,
                                               shape: RoundedRectangleBorder(
                                                 borderRadius:
-                                                    BorderRadius.circular(8.0),
+                                                    BorderRadius.circular(8),
                                               ),
                                               child: Column(
                                                 mainAxisSize: MainAxisSize.max,
@@ -1973,16 +1961,13 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                                           FlutterFlowTheme.of(
                                                                   context)
                                                               .secondaryText,
-                                                      size: 20.0,
+                                                      size: 20,
                                                     ),
-                                                    tileColor: FlutterFlowTheme
-                                                            .of(context)
-                                                        .secondaryBackground,
                                                     dense: false,
                                                     contentPadding:
                                                         EdgeInsetsDirectional
-                                                            .fromSTEB(16.0, 0.0,
-                                                                16.0, 0.0),
+                                                            .fromSTEB(
+                                                                16, 0, 16, 0),
                                                   ),
                                                   AuthUserStreamWidget(
                                                     builder: (context) =>
@@ -2017,8 +2002,8 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                                                   Align(
                                                                     alignment:
                                                                         AlignmentDirectional(
-                                                                            0.0,
-                                                                            0.0),
+                                                                            0,
+                                                                            0),
                                                                     child:
                                                                         Stack(
                                                                       children: [
@@ -2028,7 +2013,7 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                                                             queryItem.title,
                                                                             style: FlutterFlowTheme.of(context).titleLarge.override(
                                                                                   fontFamily: 'Inter',
-                                                                                  fontSize: 20.0,
+                                                                                  fontSize: 20,
                                                                                 ),
                                                                           ),
                                                                           subtitle:
@@ -2036,40 +2021,47 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                                                             queryItem.subtitle,
                                                                             style: FlutterFlowTheme.of(context).labelMedium.override(
                                                                                   fontFamily: 'Inter',
-                                                                                  fontSize: 16.0,
+                                                                                  fontSize: 16,
                                                                                 ),
                                                                           ),
-                                                                          tileColor:
-                                                                              FlutterFlowTheme.of(context).secondaryBackground,
                                                                           dense:
                                                                               false,
                                                                           contentPadding: EdgeInsetsDirectional.fromSTEB(
-                                                                              76.0,
-                                                                              0.0,
-                                                                              16.0,
-                                                                              0.0),
+                                                                              76,
+                                                                              0,
+                                                                              16,
+                                                                              0),
                                                                         ),
-                                                                        Padding(
-                                                                          padding: EdgeInsetsDirectional.fromSTEB(
-                                                                              16.0,
-                                                                              8.0,
-                                                                              8.0,
-                                                                              0.0),
-                                                                          child:
-                                                                              ClipRRect(
-                                                                            borderRadius:
-                                                                                BorderRadius.circular(8.0),
-                                                                            child:
-                                                                                Image.network(
-                                                                              valueOrDefault<String>(
-                                                                                queryItem.photoUrl,
-                                                                                'https://www.ledr.com/colours/white.jpg',
-                                                                              ),
-                                                                              width: 48.0,
-                                                                              height: 48.0,
-                                                                              fit: BoxFit.cover,
-                                                                            ),
-                                                                          ),
+                                                                        Builder(
+                                                                          builder:
+                                                                              (context) {
+                                                                            if (queryItem.photoUrl != null &&
+                                                                                queryItem.photoUrl != '') {
+                                                                              return Padding(
+                                                                                padding: EdgeInsetsDirectional.fromSTEB(16, 8, 8, 0),
+                                                                                child: ClipRRect(
+                                                                                  borderRadius: BorderRadius.circular(8),
+                                                                                  child: Image.network(
+                                                                                    queryItem.photoUrl,
+                                                                                    width: 48,
+                                                                                    height: 48,
+                                                                                    fit: BoxFit.cover,
+                                                                                  ),
+                                                                                ),
+                                                                              );
+                                                                            } else {
+                                                                              return Opacity(
+                                                                                opacity: 0,
+                                                                                child: Container(
+                                                                                  width: 0,
+                                                                                  height: 0,
+                                                                                  decoration: BoxDecoration(
+                                                                                    color: FlutterFlowTheme.of(context).secondaryBackground,
+                                                                                  ),
+                                                                                ),
+                                                                              );
+                                                                            }
+                                                                          },
                                                                         ),
                                                                       ],
                                                                     ),
@@ -2077,31 +2069,35 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                                                   Align(
                                                                     alignment:
                                                                         AlignmentDirectional(
-                                                                            -1.0,
-                                                                            0.0),
+                                                                            -1,
+                                                                            0),
                                                                     child:
-                                                                        Container(
-                                                                      width: MediaQuery.sizeOf(context)
-                                                                              .width *
-                                                                          1.0,
-                                                                      decoration:
-                                                                          BoxDecoration(
-                                                                        color: FlutterFlowTheme.of(context)
-                                                                            .secondaryBackground,
-                                                                      ),
+                                                                        Padding(
+                                                                      padding: EdgeInsetsDirectional
+                                                                          .fromSTEB(
+                                                                              0,
+                                                                              0,
+                                                                              16,
+                                                                              0),
                                                                       child:
-                                                                          Padding(
-                                                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                                                            76.0,
-                                                                            0.0,
-                                                                            0.0,
-                                                                            8.0),
+                                                                          Container(
+                                                                        width: MediaQuery.sizeOf(context)
+                                                                            .width,
+                                                                        decoration:
+                                                                            BoxDecoration(),
                                                                         child:
-                                                                            Text(
-                                                                          queryItem
-                                                                              .description,
-                                                                          style:
-                                                                              FlutterFlowTheme.of(context).bodyMedium,
+                                                                            Padding(
+                                                                          padding: EdgeInsetsDirectional.fromSTEB(
+                                                                              76,
+                                                                              0,
+                                                                              0,
+                                                                              8),
+                                                                          child:
+                                                                              Text(
+                                                                            queryItem.description,
+                                                                            style:
+                                                                                FlutterFlowTheme.of(context).bodyMedium,
+                                                                          ),
                                                                         ),
                                                                       ),
                                                                     ),
@@ -2112,11 +2108,12 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                                                       ? false
                                                                       : true)
                                                                     Padding(
-                                                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                                                          0.0,
-                                                                          8.0,
-                                                                          0.0,
-                                                                          0.0),
+                                                                      padding: EdgeInsetsDirectional
+                                                                          .fromSTEB(
+                                                                              0,
+                                                                              8,
+                                                                              0,
+                                                                              0),
                                                                       child:
                                                                           CarouselOfImagesWidget(
                                                                         key: Key(
@@ -2142,11 +2139,11 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                                   Clip.antiAliasWithSaveLayer,
                                               color:
                                                   FlutterFlowTheme.of(context)
-                                                      .secondaryBackground,
-                                              elevation: 4.0,
+                                                      .primaryBackground,
+                                              elevation: 4,
                                               shape: RoundedRectangleBorder(
                                                 borderRadius:
-                                                    BorderRadius.circular(8.0),
+                                                    BorderRadius.circular(8),
                                               ),
                                               child: Column(
                                                 mainAxisSize: MainAxisSize.max,
@@ -2165,16 +2162,13 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                                           FlutterFlowTheme.of(
                                                                   context)
                                                               .secondaryText,
-                                                      size: 20.0,
+                                                      size: 20,
                                                     ),
-                                                    tileColor: FlutterFlowTheme
-                                                            .of(context)
-                                                        .secondaryBackground,
                                                     dense: false,
                                                     contentPadding:
                                                         EdgeInsetsDirectional
-                                                            .fromSTEB(16.0, 0.0,
-                                                                16.0, 0.0),
+                                                            .fromSTEB(
+                                                                16, 0, 16, 0),
                                                   ),
                                                   AuthUserStreamWidget(
                                                     builder: (context) =>
@@ -2182,7 +2176,7 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                                       builder: (context) {
                                                         final query =
                                                             (currentUserDocument
-                                                                        ?.clubs
+                                                                        ?.athletics
                                                                         ?.toList() ??
                                                                     [])
                                                                 .toList()
@@ -2209,8 +2203,8 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                                                   Align(
                                                                     alignment:
                                                                         AlignmentDirectional(
-                                                                            0.0,
-                                                                            0.0),
+                                                                            0,
+                                                                            0),
                                                                     child:
                                                                         Stack(
                                                                       children: [
@@ -2220,7 +2214,7 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                                                             queryItem.title,
                                                                             style: FlutterFlowTheme.of(context).titleLarge.override(
                                                                                   fontFamily: 'Inter',
-                                                                                  fontSize: 20.0,
+                                                                                  fontSize: 20,
                                                                                 ),
                                                                           ),
                                                                           subtitle:
@@ -2228,40 +2222,47 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                                                             queryItem.subtitle,
                                                                             style: FlutterFlowTheme.of(context).labelMedium.override(
                                                                                   fontFamily: 'Inter',
-                                                                                  fontSize: 16.0,
+                                                                                  fontSize: 16,
                                                                                 ),
                                                                           ),
-                                                                          tileColor:
-                                                                              FlutterFlowTheme.of(context).secondaryBackground,
                                                                           dense:
                                                                               false,
                                                                           contentPadding: EdgeInsetsDirectional.fromSTEB(
-                                                                              76.0,
-                                                                              0.0,
-                                                                              16.0,
-                                                                              0.0),
+                                                                              76,
+                                                                              0,
+                                                                              16,
+                                                                              0),
                                                                         ),
-                                                                        Padding(
-                                                                          padding: EdgeInsetsDirectional.fromSTEB(
-                                                                              16.0,
-                                                                              8.0,
-                                                                              8.0,
-                                                                              0.0),
-                                                                          child:
-                                                                              ClipRRect(
-                                                                            borderRadius:
-                                                                                BorderRadius.circular(8.0),
-                                                                            child:
-                                                                                Image.network(
-                                                                              valueOrDefault<String>(
-                                                                                queryItem.photoUrl,
-                                                                                'https://www.ledr.com/colours/white.jpg',
-                                                                              ),
-                                                                              width: 48.0,
-                                                                              height: 48.0,
-                                                                              fit: BoxFit.cover,
-                                                                            ),
-                                                                          ),
+                                                                        Builder(
+                                                                          builder:
+                                                                              (context) {
+                                                                            if (queryItem.photoUrl != null &&
+                                                                                queryItem.photoUrl != '') {
+                                                                              return Padding(
+                                                                                padding: EdgeInsetsDirectional.fromSTEB(16, 8, 8, 0),
+                                                                                child: ClipRRect(
+                                                                                  borderRadius: BorderRadius.circular(8),
+                                                                                  child: Image.network(
+                                                                                    queryItem.photoUrl,
+                                                                                    width: 48,
+                                                                                    height: 48,
+                                                                                    fit: BoxFit.cover,
+                                                                                  ),
+                                                                                ),
+                                                                              );
+                                                                            } else {
+                                                                              return Opacity(
+                                                                                opacity: 0,
+                                                                                child: Container(
+                                                                                  width: 0,
+                                                                                  height: 0,
+                                                                                  decoration: BoxDecoration(
+                                                                                    color: FlutterFlowTheme.of(context).secondaryBackground,
+                                                                                  ),
+                                                                                ),
+                                                                              );
+                                                                            }
+                                                                          },
                                                                         ),
                                                                       ],
                                                                     ),
@@ -2269,31 +2270,35 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                                                   Align(
                                                                     alignment:
                                                                         AlignmentDirectional(
-                                                                            -1.0,
-                                                                            0.0),
+                                                                            -1,
+                                                                            0),
                                                                     child:
-                                                                        Container(
-                                                                      width: MediaQuery.sizeOf(context)
-                                                                              .width *
-                                                                          1.0,
-                                                                      decoration:
-                                                                          BoxDecoration(
-                                                                        color: FlutterFlowTheme.of(context)
-                                                                            .secondaryBackground,
-                                                                      ),
+                                                                        Padding(
+                                                                      padding: EdgeInsetsDirectional
+                                                                          .fromSTEB(
+                                                                              0,
+                                                                              0,
+                                                                              16,
+                                                                              0),
                                                                       child:
-                                                                          Padding(
-                                                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                                                            76.0,
-                                                                            0.0,
-                                                                            0.0,
-                                                                            8.0),
+                                                                          Container(
+                                                                        width: MediaQuery.sizeOf(context)
+                                                                            .width,
+                                                                        decoration:
+                                                                            BoxDecoration(),
                                                                         child:
-                                                                            Text(
-                                                                          queryItem
-                                                                              .description,
-                                                                          style:
-                                                                              FlutterFlowTheme.of(context).bodyMedium,
+                                                                            Padding(
+                                                                          padding: EdgeInsetsDirectional.fromSTEB(
+                                                                              76,
+                                                                              0,
+                                                                              0,
+                                                                              8),
+                                                                          child:
+                                                                              Text(
+                                                                            queryItem.description,
+                                                                            style:
+                                                                                FlutterFlowTheme.of(context).bodyMedium,
+                                                                          ),
                                                                         ),
                                                                       ),
                                                                     ),
@@ -2304,11 +2309,12 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                                                       ? false
                                                                       : true)
                                                                     Padding(
-                                                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                                                          0.0,
-                                                                          8.0,
-                                                                          0.0,
-                                                                          0.0),
+                                                                      padding: EdgeInsetsDirectional
+                                                                          .fromSTEB(
+                                                                              0,
+                                                                              8,
+                                                                              0,
+                                                                              0),
                                                                       child:
                                                                           CarouselOfImagesWidget(
                                                                         key: Key(
@@ -2334,11 +2340,11 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                                   Clip.antiAliasWithSaveLayer,
                                               color:
                                                   FlutterFlowTheme.of(context)
-                                                      .secondaryBackground,
-                                              elevation: 4.0,
+                                                      .primaryBackground,
+                                              elevation: 4,
                                               shape: RoundedRectangleBorder(
                                                 borderRadius:
-                                                    BorderRadius.circular(8.0),
+                                                    BorderRadius.circular(8),
                                               ),
                                               child: Column(
                                                 mainAxisSize: MainAxisSize.max,
@@ -2357,16 +2363,13 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                                           FlutterFlowTheme.of(
                                                                   context)
                                                               .secondaryText,
-                                                      size: 20.0,
+                                                      size: 20,
                                                     ),
-                                                    tileColor: FlutterFlowTheme
-                                                            .of(context)
-                                                        .secondaryBackground,
                                                     dense: false,
                                                     contentPadding:
                                                         EdgeInsetsDirectional
-                                                            .fromSTEB(16.0, 0.0,
-                                                                16.0, 0.0),
+                                                            .fromSTEB(
+                                                                16, 0, 16, 0),
                                                   ),
                                                   AuthUserStreamWidget(
                                                     builder: (context) =>
@@ -2401,8 +2404,8 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                                                   Align(
                                                                     alignment:
                                                                         AlignmentDirectional(
-                                                                            0.0,
-                                                                            0.0),
+                                                                            0,
+                                                                            0),
                                                                     child:
                                                                         Stack(
                                                                       children: [
@@ -2412,7 +2415,7 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                                                             queryItem.title,
                                                                             style: FlutterFlowTheme.of(context).titleLarge.override(
                                                                                   fontFamily: 'Inter',
-                                                                                  fontSize: 20.0,
+                                                                                  fontSize: 20,
                                                                                 ),
                                                                           ),
                                                                           subtitle:
@@ -2420,40 +2423,47 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                                                             queryItem.subtitle,
                                                                             style: FlutterFlowTheme.of(context).labelMedium.override(
                                                                                   fontFamily: 'Inter',
-                                                                                  fontSize: 16.0,
+                                                                                  fontSize: 16,
                                                                                 ),
                                                                           ),
-                                                                          tileColor:
-                                                                              FlutterFlowTheme.of(context).secondaryBackground,
                                                                           dense:
                                                                               false,
                                                                           contentPadding: EdgeInsetsDirectional.fromSTEB(
-                                                                              76.0,
-                                                                              0.0,
-                                                                              16.0,
-                                                                              0.0),
+                                                                              76,
+                                                                              0,
+                                                                              16,
+                                                                              0),
                                                                         ),
-                                                                        Padding(
-                                                                          padding: EdgeInsetsDirectional.fromSTEB(
-                                                                              16.0,
-                                                                              8.0,
-                                                                              8.0,
-                                                                              0.0),
-                                                                          child:
-                                                                              ClipRRect(
-                                                                            borderRadius:
-                                                                                BorderRadius.circular(8.0),
-                                                                            child:
-                                                                                Image.network(
-                                                                              valueOrDefault<String>(
-                                                                                queryItem.photoUrl,
-                                                                                'https://www.ledr.com/colours/white.jpg',
-                                                                              ),
-                                                                              width: 48.0,
-                                                                              height: 48.0,
-                                                                              fit: BoxFit.cover,
-                                                                            ),
-                                                                          ),
+                                                                        Builder(
+                                                                          builder:
+                                                                              (context) {
+                                                                            if (queryItem.photoUrl != null &&
+                                                                                queryItem.photoUrl != '') {
+                                                                              return Padding(
+                                                                                padding: EdgeInsetsDirectional.fromSTEB(16, 8, 8, 0),
+                                                                                child: ClipRRect(
+                                                                                  borderRadius: BorderRadius.circular(8),
+                                                                                  child: Image.network(
+                                                                                    queryItem.photoUrl,
+                                                                                    width: 48,
+                                                                                    height: 48,
+                                                                                    fit: BoxFit.cover,
+                                                                                  ),
+                                                                                ),
+                                                                              );
+                                                                            } else {
+                                                                              return Opacity(
+                                                                                opacity: 0,
+                                                                                child: Container(
+                                                                                  width: 0,
+                                                                                  height: 0,
+                                                                                  decoration: BoxDecoration(
+                                                                                    color: FlutterFlowTheme.of(context).secondaryBackground,
+                                                                                  ),
+                                                                                ),
+                                                                              );
+                                                                            }
+                                                                          },
                                                                         ),
                                                                       ],
                                                                     ),
@@ -2461,31 +2471,35 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                                                   Align(
                                                                     alignment:
                                                                         AlignmentDirectional(
-                                                                            -1.0,
-                                                                            0.0),
+                                                                            -1,
+                                                                            0),
                                                                     child:
-                                                                        Container(
-                                                                      width: MediaQuery.sizeOf(context)
-                                                                              .width *
-                                                                          1.0,
-                                                                      decoration:
-                                                                          BoxDecoration(
-                                                                        color: FlutterFlowTheme.of(context)
-                                                                            .secondaryBackground,
-                                                                      ),
+                                                                        Padding(
+                                                                      padding: EdgeInsetsDirectional
+                                                                          .fromSTEB(
+                                                                              0,
+                                                                              0,
+                                                                              16,
+                                                                              0),
                                                                       child:
-                                                                          Padding(
-                                                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                                                            76.0,
-                                                                            0.0,
-                                                                            0.0,
-                                                                            8.0),
+                                                                          Container(
+                                                                        width: MediaQuery.sizeOf(context)
+                                                                            .width,
+                                                                        decoration:
+                                                                            BoxDecoration(),
                                                                         child:
-                                                                            Text(
-                                                                          queryItem
-                                                                              .description,
-                                                                          style:
-                                                                              FlutterFlowTheme.of(context).bodyMedium,
+                                                                            Padding(
+                                                                          padding: EdgeInsetsDirectional.fromSTEB(
+                                                                              76,
+                                                                              0,
+                                                                              0,
+                                                                              8),
+                                                                          child:
+                                                                              Text(
+                                                                            queryItem.description,
+                                                                            style:
+                                                                                FlutterFlowTheme.of(context).bodyMedium,
+                                                                          ),
                                                                         ),
                                                                       ),
                                                                     ),
@@ -2496,11 +2510,12 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                                                       ? false
                                                                       : true)
                                                                     Padding(
-                                                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                                                          0.0,
-                                                                          8.0,
-                                                                          0.0,
-                                                                          0.0),
+                                                                      padding: EdgeInsetsDirectional
+                                                                          .fromSTEB(
+                                                                              0,
+                                                                              8,
+                                                                              0,
+                                                                              0),
                                                                       child:
                                                                           CarouselOfImagesWidget(
                                                                         key: Key(
@@ -2526,11 +2541,11 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                                   Clip.antiAliasWithSaveLayer,
                                               color:
                                                   FlutterFlowTheme.of(context)
-                                                      .secondaryBackground,
-                                              elevation: 4.0,
+                                                      .primaryBackground,
+                                              elevation: 4,
                                               shape: RoundedRectangleBorder(
                                                 borderRadius:
-                                                    BorderRadius.circular(8.0),
+                                                    BorderRadius.circular(8),
                                               ),
                                               child: Column(
                                                 mainAxisSize: MainAxisSize.max,
@@ -2549,16 +2564,13 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                                           FlutterFlowTheme.of(
                                                                   context)
                                                               .secondaryText,
-                                                      size: 20.0,
+                                                      size: 20,
                                                     ),
-                                                    tileColor: FlutterFlowTheme
-                                                            .of(context)
-                                                        .secondaryBackground,
                                                     dense: false,
                                                     contentPadding:
                                                         EdgeInsetsDirectional
-                                                            .fromSTEB(16.0, 0.0,
-                                                                16.0, 0.0),
+                                                            .fromSTEB(
+                                                                16, 0, 16, 0),
                                                   ),
                                                   AuthUserStreamWidget(
                                                     builder: (context) =>
@@ -2593,8 +2605,8 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                                                   Align(
                                                                     alignment:
                                                                         AlignmentDirectional(
-                                                                            0.0,
-                                                                            0.0),
+                                                                            0,
+                                                                            0),
                                                                     child:
                                                                         Stack(
                                                                       children: [
@@ -2604,7 +2616,7 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                                                             queryItem.title,
                                                                             style: FlutterFlowTheme.of(context).titleLarge.override(
                                                                                   fontFamily: 'Inter',
-                                                                                  fontSize: 20.0,
+                                                                                  fontSize: 20,
                                                                                 ),
                                                                           ),
                                                                           subtitle:
@@ -2612,40 +2624,47 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                                                             queryItem.subtitle,
                                                                             style: FlutterFlowTheme.of(context).labelMedium.override(
                                                                                   fontFamily: 'Inter',
-                                                                                  fontSize: 16.0,
+                                                                                  fontSize: 16,
                                                                                 ),
                                                                           ),
-                                                                          tileColor:
-                                                                              FlutterFlowTheme.of(context).secondaryBackground,
                                                                           dense:
                                                                               false,
                                                                           contentPadding: EdgeInsetsDirectional.fromSTEB(
-                                                                              76.0,
-                                                                              0.0,
-                                                                              16.0,
-                                                                              0.0),
+                                                                              76,
+                                                                              0,
+                                                                              16,
+                                                                              0),
                                                                         ),
-                                                                        Padding(
-                                                                          padding: EdgeInsetsDirectional.fromSTEB(
-                                                                              16.0,
-                                                                              8.0,
-                                                                              8.0,
-                                                                              0.0),
-                                                                          child:
-                                                                              ClipRRect(
-                                                                            borderRadius:
-                                                                                BorderRadius.circular(8.0),
-                                                                            child:
-                                                                                Image.network(
-                                                                              valueOrDefault<String>(
-                                                                                queryItem.photoUrl,
-                                                                                'https://www.ledr.com/colours/white.jpg',
-                                                                              ),
-                                                                              width: 48.0,
-                                                                              height: 48.0,
-                                                                              fit: BoxFit.cover,
-                                                                            ),
-                                                                          ),
+                                                                        Builder(
+                                                                          builder:
+                                                                              (context) {
+                                                                            if (queryItem.photoUrl != null &&
+                                                                                queryItem.photoUrl != '') {
+                                                                              return Padding(
+                                                                                padding: EdgeInsetsDirectional.fromSTEB(16, 8, 8, 0),
+                                                                                child: ClipRRect(
+                                                                                  borderRadius: BorderRadius.circular(8),
+                                                                                  child: Image.network(
+                                                                                    queryItem.photoUrl,
+                                                                                    width: 48,
+                                                                                    height: 48,
+                                                                                    fit: BoxFit.cover,
+                                                                                  ),
+                                                                                ),
+                                                                              );
+                                                                            } else {
+                                                                              return Opacity(
+                                                                                opacity: 0,
+                                                                                child: Container(
+                                                                                  width: 0,
+                                                                                  height: 0,
+                                                                                  decoration: BoxDecoration(
+                                                                                    color: FlutterFlowTheme.of(context).secondaryBackground,
+                                                                                  ),
+                                                                                ),
+                                                                              );
+                                                                            }
+                                                                          },
                                                                         ),
                                                                       ],
                                                                     ),
@@ -2653,31 +2672,35 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                                                   Align(
                                                                     alignment:
                                                                         AlignmentDirectional(
-                                                                            -1.0,
-                                                                            0.0),
+                                                                            -1,
+                                                                            0),
                                                                     child:
-                                                                        Container(
-                                                                      width: MediaQuery.sizeOf(context)
-                                                                              .width *
-                                                                          1.0,
-                                                                      decoration:
-                                                                          BoxDecoration(
-                                                                        color: FlutterFlowTheme.of(context)
-                                                                            .secondaryBackground,
-                                                                      ),
+                                                                        Padding(
+                                                                      padding: EdgeInsetsDirectional
+                                                                          .fromSTEB(
+                                                                              0,
+                                                                              0,
+                                                                              16,
+                                                                              0),
                                                                       child:
-                                                                          Padding(
-                                                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                                                            76.0,
-                                                                            0.0,
-                                                                            0.0,
-                                                                            8.0),
+                                                                          Container(
+                                                                        width: MediaQuery.sizeOf(context)
+                                                                            .width,
+                                                                        decoration:
+                                                                            BoxDecoration(),
                                                                         child:
-                                                                            Text(
-                                                                          queryItem
-                                                                              .description,
-                                                                          style:
-                                                                              FlutterFlowTheme.of(context).bodyMedium,
+                                                                            Padding(
+                                                                          padding: EdgeInsetsDirectional.fromSTEB(
+                                                                              76,
+                                                                              0,
+                                                                              0,
+                                                                              8),
+                                                                          child:
+                                                                              Text(
+                                                                            queryItem.description,
+                                                                            style:
+                                                                                FlutterFlowTheme.of(context).bodyMedium,
+                                                                          ),
                                                                         ),
                                                                       ),
                                                                     ),
@@ -2688,11 +2711,12 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                                                       ? false
                                                                       : true)
                                                                     Padding(
-                                                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                                                          0.0,
-                                                                          8.0,
-                                                                          0.0,
-                                                                          0.0),
+                                                                      padding: EdgeInsetsDirectional
+                                                                          .fromSTEB(
+                                                                              0,
+                                                                              8,
+                                                                              0,
+                                                                              0),
                                                                       child:
                                                                           CarouselOfImagesWidget(
                                                                         key: Key(
@@ -2718,11 +2742,11 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                                   Clip.antiAliasWithSaveLayer,
                                               color:
                                                   FlutterFlowTheme.of(context)
-                                                      .secondaryBackground,
-                                              elevation: 4.0,
+                                                      .primaryBackground,
+                                              elevation: 4,
                                               shape: RoundedRectangleBorder(
                                                 borderRadius:
-                                                    BorderRadius.circular(8.0),
+                                                    BorderRadius.circular(8),
                                               ),
                                               child: Column(
                                                 mainAxisSize: MainAxisSize.max,
@@ -2741,16 +2765,13 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                                           FlutterFlowTheme.of(
                                                                   context)
                                                               .secondaryText,
-                                                      size: 20.0,
+                                                      size: 20,
                                                     ),
-                                                    tileColor: FlutterFlowTheme
-                                                            .of(context)
-                                                        .secondaryBackground,
                                                     dense: false,
                                                     contentPadding:
                                                         EdgeInsetsDirectional
-                                                            .fromSTEB(16.0, 0.0,
-                                                                16.0, 0.0),
+                                                            .fromSTEB(
+                                                                16, 0, 16, 0),
                                                   ),
                                                   AuthUserStreamWidget(
                                                     builder: (context) =>
@@ -2785,8 +2806,8 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                                                   Align(
                                                                     alignment:
                                                                         AlignmentDirectional(
-                                                                            0.0,
-                                                                            0.0),
+                                                                            0,
+                                                                            0),
                                                                     child:
                                                                         Stack(
                                                                       children: [
@@ -2796,7 +2817,7 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                                                             queryItem.title,
                                                                             style: FlutterFlowTheme.of(context).titleLarge.override(
                                                                                   fontFamily: 'Inter',
-                                                                                  fontSize: 20.0,
+                                                                                  fontSize: 20,
                                                                                 ),
                                                                           ),
                                                                           subtitle:
@@ -2804,40 +2825,47 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                                                             queryItem.subtitle,
                                                                             style: FlutterFlowTheme.of(context).labelMedium.override(
                                                                                   fontFamily: 'Inter',
-                                                                                  fontSize: 16.0,
+                                                                                  fontSize: 16,
                                                                                 ),
                                                                           ),
-                                                                          tileColor:
-                                                                              FlutterFlowTheme.of(context).secondaryBackground,
                                                                           dense:
                                                                               false,
                                                                           contentPadding: EdgeInsetsDirectional.fromSTEB(
-                                                                              76.0,
-                                                                              0.0,
-                                                                              16.0,
-                                                                              0.0),
+                                                                              76,
+                                                                              0,
+                                                                              16,
+                                                                              0),
                                                                         ),
-                                                                        Padding(
-                                                                          padding: EdgeInsetsDirectional.fromSTEB(
-                                                                              16.0,
-                                                                              8.0,
-                                                                              8.0,
-                                                                              0.0),
-                                                                          child:
-                                                                              ClipRRect(
-                                                                            borderRadius:
-                                                                                BorderRadius.circular(8.0),
-                                                                            child:
-                                                                                Image.network(
-                                                                              valueOrDefault<String>(
-                                                                                queryItem.photoUrl,
-                                                                                'https://www.ledr.com/colours/white.jpg',
-                                                                              ),
-                                                                              width: 48.0,
-                                                                              height: 48.0,
-                                                                              fit: BoxFit.cover,
-                                                                            ),
-                                                                          ),
+                                                                        Builder(
+                                                                          builder:
+                                                                              (context) {
+                                                                            if (queryItem.photoUrl != null &&
+                                                                                queryItem.photoUrl != '') {
+                                                                              return Padding(
+                                                                                padding: EdgeInsetsDirectional.fromSTEB(16, 8, 8, 0),
+                                                                                child: ClipRRect(
+                                                                                  borderRadius: BorderRadius.circular(8),
+                                                                                  child: Image.network(
+                                                                                    queryItem.photoUrl,
+                                                                                    width: 48,
+                                                                                    height: 48,
+                                                                                    fit: BoxFit.cover,
+                                                                                  ),
+                                                                                ),
+                                                                              );
+                                                                            } else {
+                                                                              return Opacity(
+                                                                                opacity: 0,
+                                                                                child: Container(
+                                                                                  width: 0,
+                                                                                  height: 0,
+                                                                                  decoration: BoxDecoration(
+                                                                                    color: FlutterFlowTheme.of(context).secondaryBackground,
+                                                                                  ),
+                                                                                ),
+                                                                              );
+                                                                            }
+                                                                          },
                                                                         ),
                                                                       ],
                                                                     ),
@@ -2845,31 +2873,35 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                                                   Align(
                                                                     alignment:
                                                                         AlignmentDirectional(
-                                                                            -1.0,
-                                                                            0.0),
+                                                                            -1,
+                                                                            0),
                                                                     child:
-                                                                        Container(
-                                                                      width: MediaQuery.sizeOf(context)
-                                                                              .width *
-                                                                          1.0,
-                                                                      decoration:
-                                                                          BoxDecoration(
-                                                                        color: FlutterFlowTheme.of(context)
-                                                                            .secondaryBackground,
-                                                                      ),
+                                                                        Padding(
+                                                                      padding: EdgeInsetsDirectional
+                                                                          .fromSTEB(
+                                                                              0,
+                                                                              0,
+                                                                              16,
+                                                                              0),
                                                                       child:
-                                                                          Padding(
-                                                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                                                            76.0,
-                                                                            0.0,
-                                                                            0.0,
-                                                                            8.0),
+                                                                          Container(
+                                                                        width: MediaQuery.sizeOf(context)
+                                                                            .width,
+                                                                        decoration:
+                                                                            BoxDecoration(),
                                                                         child:
-                                                                            Text(
-                                                                          queryItem
-                                                                              .description,
-                                                                          style:
-                                                                              FlutterFlowTheme.of(context).bodyMedium,
+                                                                            Padding(
+                                                                          padding: EdgeInsetsDirectional.fromSTEB(
+                                                                              76,
+                                                                              0,
+                                                                              0,
+                                                                              8),
+                                                                          child:
+                                                                              Text(
+                                                                            queryItem.description,
+                                                                            style:
+                                                                                FlutterFlowTheme.of(context).bodyMedium,
+                                                                          ),
                                                                         ),
                                                                       ),
                                                                     ),
@@ -2880,11 +2912,12 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                                                       ? false
                                                                       : true)
                                                                     Padding(
-                                                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                                                          0.0,
-                                                                          8.0,
-                                                                          0.0,
-                                                                          0.0),
+                                                                      padding: EdgeInsetsDirectional
+                                                                          .fromSTEB(
+                                                                              0,
+                                                                              8,
+                                                                              0,
+                                                                              0),
                                                                       child:
                                                                           CarouselOfImagesWidget(
                                                                         key: Key(
@@ -2915,7 +2948,7 @@ class _DashboardWidgetState extends State<DashboardWidget>
                             ),
                           ),
                           Align(
-                            alignment: Alignment(0.0, 0),
+                            alignment: Alignment(0, 0),
                             child: TabBar(
                               labelColor:
                                   FlutterFlowTheme.of(context).primaryText,
@@ -2929,7 +2962,7 @@ class _DashboardWidgetState extends State<DashboardWidget>
                               unselectedLabelStyle: TextStyle(),
                               indicatorColor:
                                   FlutterFlowTheme.of(context).primary,
-                              padding: EdgeInsets.all(6.0),
+                              padding: EdgeInsets.all(6),
                               tabs: [
                                 Tab(
                                   text: 'Explore',
@@ -2960,3 +2993,4 @@ class _DashboardWidgetState extends State<DashboardWidget>
     );
   }
 }
+    

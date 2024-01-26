@@ -15,14 +15,14 @@ export 'chat_thread_update_model.dart';
 
 class ChatThreadUpdateWidget extends StatefulWidget {
   const ChatThreadUpdateWidget({
-    Key? key,
+    super.key,
     required this.chatMessagesRef,
-  }) : super(key: key);
+  });
 
   final ChatMessagesRecord? chatMessagesRef;
 
   @override
-  _ChatThreadUpdateWidgetState createState() => _ChatThreadUpdateWidgetState();
+  State<ChatThreadUpdateWidget> createState() => _ChatThreadUpdateWidgetState();
 }
 
 class _ChatThreadUpdateWidgetState extends State<ChatThreadUpdateWidget> {
@@ -38,6 +38,8 @@ class _ChatThreadUpdateWidgetState extends State<ChatThreadUpdateWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => ChatThreadUpdateModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

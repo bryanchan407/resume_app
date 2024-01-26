@@ -11,10 +11,10 @@ import 'self_profile_element_model.dart';
 export 'self_profile_element_model.dart';
 
 class SelfProfileElementWidget extends StatefulWidget {
-  const SelfProfileElementWidget({Key? key}) : super(key: key);
+  const SelfProfileElementWidget({super.key});
 
   @override
-  _SelfProfileElementWidgetState createState() =>
+  State<SelfProfileElementWidget> createState() =>
       _SelfProfileElementWidgetState();
 }
 
@@ -31,6 +31,8 @@ class _SelfProfileElementWidgetState extends State<SelfProfileElementWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => SelfProfileElementModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

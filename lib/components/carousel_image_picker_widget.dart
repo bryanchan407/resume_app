@@ -13,16 +13,16 @@ export 'carousel_image_picker_model.dart';
 
 class CarouselImagePickerWidget extends StatefulWidget {
   const CarouselImagePickerWidget({
-    Key? key,
+    super.key,
     required this.index,
     required this.typeEC,
-  }) : super(key: key);
+  });
 
   final int? index;
   final String? typeEC;
 
   @override
-  _CarouselImagePickerWidgetState createState() =>
+  State<CarouselImagePickerWidget> createState() =>
       _CarouselImagePickerWidgetState();
 }
 
@@ -39,6 +39,8 @@ class _CarouselImagePickerWidgetState extends State<CarouselImagePickerWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => CarouselImagePickerModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

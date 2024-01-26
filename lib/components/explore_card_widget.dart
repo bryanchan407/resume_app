@@ -10,10 +10,10 @@ import 'explore_card_model.dart';
 export 'explore_card_model.dart';
 
 class ExploreCardWidget extends StatefulWidget {
-  const ExploreCardWidget({Key? key}) : super(key: key);
+  const ExploreCardWidget({super.key});
 
   @override
-  _ExploreCardWidgetState createState() => _ExploreCardWidgetState();
+  State<ExploreCardWidget> createState() => _ExploreCardWidgetState();
 }
 
 class _ExploreCardWidgetState extends State<ExploreCardWidget> {
@@ -29,6 +29,8 @@ class _ExploreCardWidgetState extends State<ExploreCardWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => ExploreCardModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
