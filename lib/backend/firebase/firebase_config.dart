@@ -2,10 +2,11 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
 
 Future initFirebase() async {
+  String yourApiKey = "";
   if (kIsWeb) {
     await Firebase.initializeApp(
         options: FirebaseOptions(
-            apiKey: "AIzaSyBH8gKqrZlmoJ05fel1L__iy5ULmF19Ark",
+            apiKey: yourApiKey,
             authDomain: "resume-fbla.firebaseapp.com",
             projectId: "resume-fbla",
             storageBucket: "resume-fbla.appspot.com",
